@@ -847,7 +847,7 @@ $ Section 3.21 create new controller (AdminTags), Add Action Method (Get) and cr
 
   html
   <a asp-controller="AdminTags"
-    asp-action="Add">Add Tag</a>
+     asp-action="Add">Add Tag</a>
   
 
 ---
