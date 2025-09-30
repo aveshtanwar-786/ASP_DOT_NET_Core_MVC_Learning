@@ -1,0 +1,1160 @@
+
+$ Section 3.19 introduction to ASP.NET MVC Architecture
+
+---
+
+ 1. "Welcome to Section three."
+
+* This is simply introducing the new section of the course.
+
+---
+
+ 2. "In the previous section, we did a lot of groundwork in creating our database and tables."
+
+* In the last section, we completed all the database setup using EF Core:
+
+  * Domain models (`BlogPost` and `Tag`)
+  * DbContext (`BlogDbContext`)
+  * Connection string setup
+  * Migrations (`Add-Migration` + `Update-Database`)
+
+---
+
+ 3. "In this section, it's all about using them."
+
+* Now that the database is ready, we will interact with it.
+* The goal is to use the database tables to perform operations like adding, editing, deleting, and reading data.
+
+---
+
+ 4. "We will create controllers, actions, models and views for our application and we will perform CRUD operations that is, create, read, update and delete on our tag table using entity framework."
+
+* Controllers: Classes that handle HTTP requests.
+* Actions: Methods inside controllers that respond to specific requests.
+* Models: Classes representing data (like `Tag`).
+* Views: HTML pages that show data to the user.
+* CRUD operations:
+
+  * Create → Add new records to the database
+  * Read → Fetch and display records
+  * Update → Modify existing records
+  * Delete → Remove records
+
+---
+
+ 5. "But before we move on, let's understand a bit more about the MVC design architecture."
+
+* MVC = Model-View-Controller, a design pattern used to structure applications cleanly.
+* Understanding MVC is essential before implementing CRUD operations.
+
+---
+
+ 6. "The MVC architectural pattern has existed for a long time in software development."
+
+* MVC is not new; it is widely used in web and desktop apps to separate responsibilities.
+
+---
+
+ 7. "Almost all the languages use MVC with slight variation, but conceptually they are all the same."
+
+* The idea is the same across languages (Java, Python, C#, PHP), but syntax may differ.
+
+---
+
+ 8. "MVC stands for Model, Views and Controllers."
+
+* Model: Handles data
+* View: Handles UI
+* Controller: Handles requests and links Model & View
+
+---
+
+ 9. "A model represents the data."
+
+* Model = a class that stores data.
+* Example in C#:
+
+  csharp
+  public class Tag {
+      public int ID { get; set; }
+      public string Name { get; set; }
+      public string DisplayName { get; set; }
+  }
+  
+
+---
+
+ 10. "A class in C Sharp that is used to describe a model and is used to carry data around to the controller and to the view model objects."
+
+* Models are C# classes.
+* They carry data from the database to the controller, then from the controller to the view.
+
+---
+
+ 11. "Store data retrieved from the database."
+
+* Models hold the actual data fetched from SQL tables.
+
+---
+
+ 12. "View, on the other hand, is user interface. View displays model data to the user and also enables them to modify them."
+
+* View = what the user sees on the screen (HTML/CSS).
+* It shows the model data and can also provide forms to accept user input.
+
+---
+
+ 13. "So we can use views to display and also to gather the user input."
+
+* Views are not just for displaying. They can include input forms to create or edit data.
+
+---
+
+ 14. "View in ASP.NET MVC is typically HTML, CSS and some special C# code that makes it easy to communicate with the model and the controller."
+
+* In ASP.NET, views often use Razor syntax (`.cshtml`):
+
+  cshtml
+  <h1>@Model.DisplayName</h1>
+  
+* This allows dynamic data display from the model.
+
+---
+
+ 15. "And after that we have the controller that is the request handler."
+
+* Controller = the class that handles HTTP requests.
+* Example: `TagController` with actions like `Index()`, `Create()`, `Edit()`.
+
+---
+
+ 16. "A user uses the view and raises an HTTP request which will be handled by the controller."
+
+* Example flow:
+
+  * User clicks "Submit" on a form (view) → browser sends HTTP POST → controller receives it.
+
+---
+
+ 17. "The controller processes the request and returns the appropriate view as a response back to the user."
+
+* Controller handles the logic:
+
+  * Saves data to database
+  * Fetches data from database
+  * Sends data back to a view
+
+---
+
+ 18. "A typical flow in an MVC design architecture usually looks like this."
+
+* Introduces the request-response flow in MVC.
+
+---
+
+ 19. "A user comes to your website and performs an action or a request."
+
+* User action = HTTP GET/POST request, e.g., clicking "View Tags".
+
+---
+
+ 20. "The request then goes directly to the controller."
+
+* Routing in ASP.NET MVC ensures requests reach the right controller/action.
+
+---
+
+ 21. "The controller then typically reads a database or performs an action on the database and gets a model."
+
+* Controller uses DbContext to query database and populate model objects.
+
+---
+
+ 22. "Back then, that model or the data in a class is then provided to the view, which then comes back to the controller and the view is returned back as a response by the controller to the browser, which the user then sees."
+
+* Flow:
+
+  1. Controller gets data → creates model
+  2. Passes model to view
+  3. View renders HTML with data
+  4. Browser displays the page
+
+---
+
+ 23. "So now that we know more about the MVC pattern, let's go on and implement that inside our application."
+
+* Next step: Start creating Controllers, Views, and CRUD operations in our ASP.NET MVC application.
+
+---
+
+ Summary of MVC flow in this application:
+
+
+User Action (HTTP Request)
+        ↓
+   Controller (handles request)
+        ↓
+   Model (fetches/stores data)
+        ↓
+   View (renders data to user)
+        ↓
+Browser shows result
+
+
+---
+
+$ Section 3.Changes to UI for Our Application 
+
+---
+
+ 1. "We are back inside Visual Studio and the first thing we will do is to run our application to see what Visual Studio provided us by default."
+
+* Visual Studio automatically creates a default ASP.NET MVC project with basic files.
+* Running the application lets you see the default web pages and check the structure before we make changes.
+
+---
+
+ 2. "To run an application, you can simply use display button and you also have options of choosing your browser."
+
+* There is a green "play" button in Visual Studio to run the project.
+* You can choose which browser (Chrome, Firefox, Edge, etc.) will display your app.
+
+---
+
+ 3. "So under the browser tab over here you have the list of installed browsers in your PC."
+
+* Visual Studio detects all browsers installed and allows you to select one for testing.
+
+---
+
+ 4. "As you can see, I have Firefox selected, but you can go ahead and choose the browser of your choice and use the Visual Studio to run this application in your preferred browser."
+
+* You can run the application in any browser; the choice does not affect functionality.
+
+---
+
+ 5. "So once that is done, you can use this button and click on that to run this application."
+
+* Click the run button to launch your ASP.NET MVC app locally.
+
+---
+
+ 6. "The application is now running and you can see the URL https localhost 7100. Yours could be a totally different application URL."
+
+* Visual Studio runs the app locally using a port (like 7100).
+* Your port may differ depending on project setup.
+
+---
+
+ 7. "On the website, we have a header, we have the body for this website and we also have this footer section over here."
+
+* Default layout has three main sections:
+
+  * Header / NavBar
+  * Body / Content area
+  * Footer
+
+---
+
+ 8. "By default, the application uses Bootstrap two for its CSS components and gives us a very clean and consistent look throughout."
+
+* Visual Studio adds Bootstrap CSS library to provide ready-made styling.
+* Bootstrap ensures responsive design and consistent layout.
+
+---
+
+ 9. "As you can see, we have a nav bar over here as well."
+
+* A navigation bar (nav bar) is provided by default.
+
+---
+
+ 10. "Clicking on the home button takes you to the home page and clicking on the privacy button takes you to the privacy page."
+
+* Default nav links:
+
+  * Home → homepage
+  * Privacy → default privacy page
+
+---
+
+ 11. "If you pay attention to the URL over here, the privacy page goes to localhost 7100 forward slash home, which is the name of the controller forward slash privacy, which is the name of the action."
+
+* URL pattern: `/{Controller}/{Action}`
+
+  * `HomeController` → controller
+  * `Privacy()` → action method
+
+---
+
+ 12. "Let's go back to our application to see this as well."
+
+* Switch to Visual Studio to look at the controller code.
+
+---
+
+ 13. "So inside the controller we have a controller named Home, which was displaying over here."
+
+* Default controller: `HomeController.cs`.
+
+---
+
+ 14. "And after that we also have an action named privacy."
+
+* `Privacy()` method handles the privacy page request.
+
+---
+
+ 15. "So when the URL home slash privacy is hit, the controller home is hit."
+
+* Hitting `/Home/Privacy` triggers `HomeController.Privacy()` in MVC.
+
+---
+
+ 16. "And inside that the action method privacy is called."
+
+* The action method determines what data or view is returned.
+
+---
+
+ 17. "Similarly, when we click on the home page, we have the home page, but it is the same as forward slash home forward slash index, which is the default action method."
+
+* Default action: `Index()` in `HomeController`.
+* `/Home` automatically maps to `/Home/Index`.
+
+---
+
+ 18. "So if I press home slash index and press enter, it goes to the same home page."
+
+* Both `/Home` and `/Home/Index` render the same view.
+
+---
+
+ 19. "That is because back in our application we have the home controller and the index method is our home page."
+
+* `Index()` method is mapped to the home page view by default.
+
+---
+
+ 20. "This is how the MVC architecture works, and every action in here corresponds to a view as well."
+
+* Each action method typically renders a corresponding `.cshtml` view.
+
+---
+
+ 21. "So the home controller has its home folder and the home folder has two views the index view, which corresponds to the index action over here and the privacy view, which corresponds to the privacy method over here."
+
+* Folder structure:
+
+  
+  Views/
+      Home/
+          Index.cshtml  → Index action
+          Privacy.cshtml → Privacy action
+  
+
+---
+
+ 22. "So when the index method is called, the view for the index view is called and responded back from the controller."
+
+* Controller → selects view → returns HTML → displayed in browser.
+
+---
+
+ 23. "We will use this pattern to create more controllers and more actions and views throughout our application."
+
+* We’ll follow this MVC pattern for new pages like tags, blog posts, etc.
+
+---
+
+ 24. "But before that, let's change some look and feel of our application."
+
+* Next step: customize header, navbar, and layout using Bootstrap & HTML.
+
+---
+
+ 25. "So I will open the layout file first and make some changes to the header that we have."
+
+* `_Layout.cshtml` defines common HTML structure (header, footer) for all pages.
+
+---
+
+ 26. "So this is the header inside the layout dot HTML and we have the nav bar and inside the nav bar we have a list which has two lines. one for the home and one for privacy."
+
+* Nav bar items are `<li>` list items with links.
+
+---
+
+ 27. "We don't need the privacy section over here so I can completely take this out."
+
+* Removing Privacy link from the navbar.
+
+---
+
+ 28. "We can keep the home section, but that is totally optional."
+
+* Keeping Home link is optional.
+
+---
+
+ 29. "But now I want to add another navigation."
+
+* Adding new nav link for admin functions (CRUD operations).
+
+---
+
+ 30. "But before that I want to also change the color of this nav bar."
+
+* Change Bootstrap navbar styling (from light to dark).
+
+---
+
+ 31. "Now, as we know, this is all bootstrap classes, and if you want to learn more about bootstrap, you can go to getbootstrap.com and you have access to their documentation and examples as well."
+
+* Bootstrap classes control colors, padding, and layout.
+
+---
+
+ 32. "In our case, we will go to the docs and we will look at the nav bar options."
+
+* Check Bootstrap navbar documentation for examples.
+
+---
+
+ 33. "We have different nav bars and different colors that we can give to nav bars."
+
+* Bootstrap provides predefined navbar color options (`navbar-dark`, `bg-dark`).
+
+---
+
+ 34. "So we want to give a dark color to our nav bar. So instead of nav bar light, we will say nav bar dark. And instead of background white we will say background of dark."
+
+* Changing CSS classes:
+
+  html
+  <nav class="navbar navbar-dark bg-dark">
+  
+
+---
+
+ 35. "And this is just because I know bootstrap, I know the classes, but you can always go back to their documentation."
+
+* You can use Bootstrap docs to learn classes and options.
+
+---
+
+ 36. "You don't have to learn all the classes. They have a very powerful documentation with the search functionality, so you can use their documentation to see what components and elements you can use for your website."
+
+* Bootstrap docs are comprehensive, search for components like navbars, buttons, cards, etc.
+
+---
+
+ 37. "So with that change, I will save the application and use this new feature inside Visual Studio, which is a hot reload."
+
+* Hot reload automatically updates your running app in the browser without restarting.
+
+---
+
+ 38. "It doesn't work all the time, but it does its job almost all the time. So with that I will come back to the application and refresh this. And with that we have the dark nav bar with us."
+
+* Refreshing shows updated navbar color (`bg-dark`).
+
+---
+
+ 39. "It may not be the look that you want. And CSS has, you know, infinite different things that you can do with your website. So you can play around with CSS and see if that works for you."
+
+* CSS is very flexible, you can customize styling as you like.
+
+---
+
+ 40. "So once the nav bar is done, that is, it has changed its color to dark. We no longer can see the nav items over here."
+
+* Default nav link color blends into dark background.
+
+---
+
+ 41. "So the first thing we want to do is to change the colors for the nav links and instead of text dark, we will use text light and see if that makes a difference."
+
+* Fix: Change nav link color:
+
+  html
+  <a class="nav-link text-light" href="#">Home</a>
+  
+
+---
+
+ 42. "We will use hot reload. And that has changed the color of the nav link to white. And that looks good."
+
+* Nav links are now visible on dark background.
+
+---
+
+ 43. "Now after this, we want to also change how content is placed on the screen."
+
+* Adjust page body layout for better spacing.
+
+---
+
+ 44. "So if I come back to the application, this is the body section over here in the layout and render body is responsible to show different content from different views inside the layout page over here."
+
+* `_Layout.cshtml` uses:
+
+  html
+  @RenderBody()
+  
+* This injects content of individual views into layout.
+
+---
+
+ 45. "And as you can see, we have a container class which pushes the content inside from the sides, but we want to give that functionality to the page themselves."
+
+* `container` class adds horizontal padding.
+* Instead, we will add it to individual pages.
+
+---
+
+ 46. "So I will remove this class from here and we will later on add this class to individual pages that we want to display."
+
+* Layout won’t control spacing; individual pages will.
+
+---
+
+ 47. "And along with that, I also want to add a new item which will help us to create the CRUD structure for the admin functionality and that is a dropdown."
+
+* Adding a dropdown menu in navbar for admin features (like adding tags).
+
+---
+
+ 48. "So I don't know how to create a dropdown in bootstrap, so I will use the bootstrap website."
+
+* Use Bootstrap docs to copy dropdown HTML example.
+
+---
+
+ 49. "And open getbootstrap.com. I will go to the documents and I will search on, let's say, a nav bar. And inside the nav bar, we should have some example with a dropdown."
+
+* Find navbar dropdown example in docs.
+
+---
+
+ 50. "So I would need something like this one and I will just selectively copy and paste that inside my website. The dropdown corresponds to this over here."
+
+* Copy dropdown HTML into `_Layout.cshtml`.
+
+---
+
+ 51. "So I will copy this and paste it back inside my website. Use Ctrl K to reformat the HTML. So ctrl and K and then D."
+
+* Reformat HTML to make it readable in Visual Studio.
+
+---
+
+ 52. "After that, we want to rename this dropdown. I want to call this the admin functionality so I can say this is an admin."
+
+* Dropdown title = Admin.
+
+---
+
+ 53. "And instead of four list items like four options inside the dropdown, I want to just make use of one and that will be to add a new tag."
+
+* We only need one option initially: `Add Tag`.
+
+---
+
+ 54. "So that will be the first thing that we will do with our controllers and views. And the database is to create a new tag inside the tag table that will be for a next section."
+
+* Later, this link will trigger CRUD operations for tags.
+
+---
+
+ 55. "But for now we will create this list item. And to rename this, I will say this is add tag."
+
+* Update dropdown link text: `Add Tag`.
+
+---
+
+ 56. "With that change and hot reload your application. If I come back and see that we have a new admin nav item over here and if I click on that, we have a link of add tag."
+
+* Dropdown now appears in navbar.
+
+---
+
+ 57. "So we have a nav link which can go to a different page. But the href of this one doesn't lead anywhere. But we know we are going to create a new controller in the next lecture and we are going to work on the ADD functionality. So we will change the href in the next lecture."
+
+* Link exists visually but does not yet navigate.
+* Future steps: create controller/action for adding a tag and update `href`.
+
+---
+
+ Summary of this lecture:
+
+* Run default app in browser
+* Inspect default MVC pages (`Home`, `Privacy`)
+* Understand MVC routing: `{Controller}/{Action}`
+* Customize navbar: dark background + text-light links
+* Remove unnecessary links (Privacy)
+* Add dropdown for Admin functions (`Add Tag`)
+* Use Bootstrap docs for components
+* Prepare for CRUD functionality
+
+---
+
+$ Section 3.21 create new controller (AdminTags), Add Action Method (Get) and create new view
+
+---
+
+ 1. "In this lecture, we will create a new controller which will be responsible to let the admin add a tag for our blog application."
+
+* We are creating a new controller class in ASP.NET MVC.
+* This controller will handle admin functionality specifically to add a tag to the database.
+
+---
+
+ 2. "Using this controller, we will perform CRUD operations, but we will start with saving a single tag into the database first."
+
+* CRUD = Create, Read, Update, Delete
+* Initially, we will focus on creating a new tag (insert into database).
+
+---
+
+ 3. "And for that we will come back to our application and we will create a new controller inside the controllers folder."
+
+* Controllers are stored in the `Controllers` folder in an MVC project.
+
+---
+
+ 4. "So we will right click on controllers, add a new controller."
+
+* Right-click the `Controllers` folder → Add → Controller
+
+---
+
+ 5. "From the controllers template. I will select the MVC controller hyphen empty template and click on the add button."
+
+* Choose "MVC Controller – Empty" template.
+* This creates a bare-bones controller class without predefined methods.
+
+---
+
+ 6. "It is asking me to give a name for the controller. And as we saw in the introduction videos, the controller need a suffix of controller and we have to prefix that with the name of the controller."
+
+* Controller naming convention: `{Name}Controller`
+* Example: `AdminTagsController`
+
+---
+
+ 7. "So we want to create a tags controller, which is an admin functionality. So we will have the controller name as admin tags controller."
+
+* Controller name = `AdminTagsController`
+
+---
+
+ 8. "Dot CSS. And with that name I will click on the add button."
+
+* Actually the file extension should be `.cs` (C# class).
+* Click Add to create the controller file.
+
+---
+
+ 9. "It creates a class file for us. And as you can see, controllers are also class files. But we know and we inherit from the controller class, which comes from the package, Microsoft DOT, ASP.NET Core DOT MVC."
+
+* Controller class inherits from `Controller` class:
+
+  csharp
+  public class AdminTagsController : Controller
+  
+* Inheriting allows this class to handle HTTP requests.
+
+---
+
+ 10. "So this way the application knows that this is not just an ordinary class, this is a controller class and it handles the user's requests."
+
+* ASP.NET Core uses inheritance to identify controllers.
+* Only classes inheriting from `Controller` are treated as request handlers.
+
+---
+
+ 11. "As part of the scaffolding, the class has been given an action method. So we have the public IActionResult, which is a response type of this action method."
+
+* Scaffolded controllers automatically include a default action method.
+* `IActionResult` = return type of controller actions, can return a view, redirect, JSON, etc.
+
+---
+
+ 12. "The name of this action method is index and it returns a view."
+
+* Default method: `Index()`
+* Returns a view page (cshtml) that will be displayed in browser.
+
+---
+
+ 13. "Now we will rename this method because we want to add a tag and we want to display an add page so that the user can fill a form and add a new tag to the database."
+
+* Rename `Index()` → `Add()`
+* `Add()` will show the form for adding a new tag.
+
+---
+
+ 14. "And in our application, when we saw the URLs, this is our base URL, this will be the controller name, which is admin tags. And then we want to open the add page."
+
+* URL pattern: `/{Controller}/{Action}` → `/AdminTags/Add`
+
+---
+
+ 15. "So instead of in the index we can rename this to Add and this becomes our action method."
+
+* Method signature:
+
+  csharp
+  public IActionResult Add()
+  
+* This action method will respond to `/AdminTags/Add`.
+
+---
+
+ 16. "This is the get method by default, but we can explicitly say that this is the HTTP get method in square brackets."
+
+* Default action method = HTTP GET (page load).
+* Can explicitly specify:
+
+  csharp
+  [HttpGet]
+  public IActionResult Add()
+  
+
+---
+
+ 17. "And with that we have the get method for the ADD action method over here."
+
+* Now we have a GET method for `/Add` to display the form.
+
+---
+
+ 18. "And we want to create a view so that whenever the user enters this URL, it goes to this controller over here and then it goes to the ADD action method. And when the action method is called, it returns a view."
+
+* Views are cshtml files that contain HTML.
+* `Add()` action will return `Add.cshtml` view.
+
+---
+
+ 19. "So we would like to create a view. At the moment there is no folder called admin tags, so a shortcut to create a view is to right click on the view itself and go to add view."
+
+* Views are stored in `Views/{ControllerName}/`.
+* If folder doesn’t exist, Visual Studio will create it.
+
+---
+
+ 20. "Select the Razor view empty and click on add."
+
+* Choose Empty Razor View → no predefined content.
+
+---
+
+ 21. "And before giving a name, let's pay attention to this folder that got created inside the views. The naming convention of the folder is the same as the controller name, and every action inside the controller will have its own cshtml file."
+
+* Folder = `Views/AdminTags/`
+* Each action method → separate cshtml view.
+
+---
+
+ 22. "We will have to rename this to Add, which is the name of our action method over here. So the name of the view always has to correspond with the name of the method."
+
+* View = `Add.cshtml` → matches `Add()` method.
+
+---
+
+ 23. "So with that change I will click on add."
+
+* Adds empty `Add.cshtml` view file.
+
+---
+
+ 24. "And now, when we don't specify a name for a view, it automatically by default looks at the name of the action method inside the views folder and the shared folder as well."
+
+* MVC automatically maps action to view of the same name.
+
+---
+
+ 25. "Now we will have to test this and run our application to see if this URL corresponds to this action method and in turn gives us this view."
+
+* Run app → check `/AdminTags/Add` loads `Add.cshtml`.
+
+---
+
+ 26. "So let's give it a heading as well so that we can see that the proper view was called."
+
+* Add HTML heading to confirm correct page loaded.
+
+---
+
+ 27. "We will define a H1 tag, but before that we will create a div. So just simple html."
+
+* Use a `<div>` container to style page, then an `<h1>` for heading.
+
+---
+
+ 28. "The div will have a class which is bootstrap class which is BG-secondary, which is a background of color secondary. It will have a BG-opacity of 10 and a padding on the y axis of two. So all these again are bootstrap classes."
+
+* Classes explained:
+
+  * `bg-secondary` → gray background
+  * `bg-opacity-10` → 10% opacity
+  * `py-2` → vertical padding
+
+---
+
+ 29. "If you want to know more about bootstrap, you can go to their website and learn it."
+
+* Use Bootstrap docs for reference.
+
+---
+
+ 30. "Inside this div we will have another div which will be a container padding. So div and this div will have a class of container."
+
+* Nest div for Bootstrap container layout → adds horizontal padding.
+
+---
+
+ 31. "And finally inside this div we will create an H1 tag. So H1 and the heading would say add new tag. This is the page heading and we will just mention that this is admin functionality."
+
+* `<h1>Add New Tag (Admin)</h1>` → page heading.
+
+---
+
+ 32. "Not that we need to, but we can just do it so that it's displaying on the screen."
+
+* Optional display of admin info.
+
+---
+
+ 33. "So with those changes, we want a link so that we can click on the link and it goes to this URL and in the shared page, when we open layout dot HTML file, we created a dropdown which is here and inside that we have the add tag dropdown link, but the href doesn't go anywhere at the moment, so we will change that."
+
+* Navbar link → currently does nothing (`href="#"`)
+* We need to point it to `/AdminTags/Add` using tag helpers.
+
+---
+
+ 34. "Instead of the href, we will use the tag helpers, we will use ASP-area is equal to empty because we don't have any areas as of now. After that we want to call the controller."
+
+* Tag helpers: `<a asp-controller="..." asp-action="...">`
+* `asp-area=""` → no MVC area used
+
+---
+
+ 35. "As you can see, after the base URL, we want to call the controller which is admin tags. So I will call ASP-controller and I will give this a name of admin tags. I will put this in a new line so that it is more readable."
+
+* Example:
+
+  html
+  <a asp-controller="AdminTags"
+     asp-action="Add">Add Tag</a>
+  
+
+---
+
+ 36. "So we have the controller which goes to the admin tags controller and now we need an action which points to this action method."
+
+* `asp-action="Add"` → matches `Add()` action method.
+
+---
+
+ 37. "So using this navigation link, this should go to the controller action method and should give us this view."
+
+* Clicking link → `/AdminTags/Add` → calls controller → returns Add.cshtml view.
+
+---
+
+ 38. "So it's time to test all of this. I will run my application."
+
+* Run application to test navigation and view rendering.
+
+---
+
+ 39. "The application is running and we want to go to the page that we just created using the navigation. So if I go to admin and hover over the add tag button, you can see on the left hand bottom corner, it is displaying the URL that will load."
+
+* Hovering
+
+
+over link → shows URL `/AdminTags/Add`
+
+---
+
+ 40. "When I click on this URL, it will go to localhost 7100 forward slash admin tags, which is the controller name forward slash add, which is the action name. So if I click on this one, it correctly loads the controller action and the correct view which has the heading of the add new tag admin functionality."
+
+* Navigation works correctly → view loaded successfully.
+
+---
+
+ 41. "It is also a good time to remove this margin between the NAV and the heading so that there is no white space over there."
+
+* Adjust CSS spacing between navbar and content.
+
+---
+
+ 42. "So let's come back to our application and inside the layout file on the NAV, we have this margin-bottom of three, so I will just take it out and press save and hot reload the application."
+
+* Remove `mb-3` class → eliminates extra white space.
+
+---
+
+ 43. "When the application reloads, you can see that the white space has now gone. So now we have a completely blank page to add a new tag."
+
+* Page layout is cleaned up, ready for form input.
+
+---
+
+ 44. "In the next lecture we will go ahead and add a form to the admin page so that we can capture the details from the user and save it to the database."
+
+* Next step = create a form → user input → database save (Create operation).
+
+---
+
+ Summary:
+
+* Created AdminTagsController
+* Added Add() GET action
+* Created Add.cshtml view
+* Styled view with Bootstrap
+* Updated navbar dropdown link → works with tag helpers
+* Adjusted layout spacing
+* Next step → add form for saving tag
+
+---
+
+$ Section 3.22 Create a new HTML form to add new Tags 
+
+---
+
+ 1. "In this lecture, we will go on and create a form to capture the details so that we can take the user input and create a tag in the database."
+
+* Goal: Create an HTML form where the admin can type in data.
+* Data = Tag name and display name.
+* Later, the form will send the data to the controller and the controller will save it into the database.
+
+---
+
+ 2. "And before we do that, we will also add a container to this nav bar so that it aligns with the body."
+
+* The navbar is currently `container-fluid` → spans full width.
+* Changing it to `container` → aligns navbar content with the rest of the page (body content).
+
+---
+
+ 3. "So that is a quick fix. I can go back to the application and the header. Needs to have a container instead of the container fluid."
+
+* In the HTML of the header/nav section, change:
+
+  html
+  <div class="container-fluid">
+  
+
+  →
+
+  html
+  <div class="container">
+  
+
+---
+
+ 4. "I will just change this to container and this will push the content of this nav bar to align with the body over here."
+
+* Now navbar and body content have the same horizontal padding, looks consistent.
+
+---
+
+ 5. "So it's refreshing now and it changes the content and padding on the sides."
+
+* This is visual effect of the container change → content no longer touches edges.
+
+---
+
+ 6. "So now that we have that defined, we can come back to our application, stop the application and create a new form inside the Add.cshtml where we have the heading already."
+
+* Stop the running app → now modify `Add.cshtml` view.
+* The form will go under the existing heading.
+
+---
+
+ 7. "But we have to create a form element so that we can capture the details from the user."
+
+* `<form>` element = HTML element that collects input from user.
+
+---
+
+ 8. "To do that, we will first create a div element and give it a class of container and a padding on the y axis of five."
+
+* Outer `<div>` = Bootstrap container for layout.
+* `py-5` = vertical padding (top & bottom).
+
+  html
+  <div class="container py-5">
+  
+
+---
+
+ 9. "Inside this div we will create the form element. So a form. For now I can get rid of the action attribute. So I will just keep the method is equal to post."
+
+* Form setup:
+
+  html
+  <form method="post">
+  
+* `method="post"` → tells browser to send form data to server using POST request.
+* No `action` attribute → defaults to current controller/action URL.
+
+---
+
+ 10. "And inside the form I will create different elements. And again this. We are using bootstrap to create our form and form elements."
+
+* Use Bootstrap CSS classes → makes form look nice automatically.
+
+---
+
+ 11. "So you can easily go to the bootstrap website to create your form elements."
+
+* Bootstrap docs = official reference for classes like `form-control`, `mb-3`, etc.
+
+---
+
+ 12. "From here I will create a div and give it a class of margin bottom hyphen three so every element will have a margin below them."
+
+* Each form input is wrapped in:
+
+  html
+  <div class="mb-3">
+  
+* `mb-3` → margin-bottom for spacing between fields.
+
+---
+
+ 13. "Inside this div we will have two things one a label and the other thing is an input element."
+
+* Each field = label + input.
+* Label = text shown to user, Input = where user types data.
+
+---
+
+ 14. "Now for the tag functionality, we need to capture these details. We need to capture the name and the display name because the ID will be generated automatically by the application and the user will not be able to input the ID."
+
+* Fields:
+
+  1. Name → internal name of tag
+  2. DisplayName → user-friendly display
+* ID = auto-generated by database
+
+---
+
+ 15. "So if I come back, I want to create the input element for the name first."
+
+* Start with first input field: Name
+
+---
+
+ 16. "So a label. The label will have a class of form-label. And the name of this label will be name."
+
+html
+<label class="form-label" for="name">Name</label>
+
+
+* `for="name"` → links label to input ID
+* `form-label` → Bootstrap styling
+
+---
+
+ 17. "After that, we will have an input element. This will be of type text."
+
+html
+<input type="text" class="form-control" id="name">
+
+
+* `type="text"` → normal text input
+* `form-control` → Bootstrap styling for inputs
+* `id="name"` → corresponds to label `for="name"`
+
+---
+
+ 18. "And I can get rid of the name attribute for now and the class of form-control. I can also get rid of the value attribute."
+
+* Minimal setup: just type, id, class
+
+---
+
+ 19. "So with that, we have one selected. We have one input and that is the name."
+
+* First field created successfully
+
+---
+
+ 20. "We also want to give it an ID. So the ID of this input element will be name."
+
+* Already mentioned above → links label to input
+
+---
+
+ 21. "Similarly, we will create a input element for the display name. So what I can do is I can easily copy this div and paste it below. I can change the label to say this is for display name and the ID for this will be displayName in camel case."
+
+* Second field → Display Name:
+
+html
+<label class="form-label" for="displayName">Display Name</label>
+<input type="text" class="form-control" id="displayName">
+
+
+---
+
+ 22. "We have two elements. Let's see how they look on the screen. So I will run my application."
+
+* Test form layout in browser
+
+---
+
+ 23. "The application is running, so we will navigate to the new page, which is the ADD tag functionality and you can see that below the heading we can have we can now have the form with two elements, the name and the display name."
+
+* Form renders correctly → two input fields visible
+
+---
+
+ 24. "And we would also need a button which is the submit button to submit these details to the controller."
+
+* Form needs a submit button to POST data
+
+---
+
+ 25. "So back to the application we would need another div. So a div with a class of margin bottom hyphen three and inside the div we will have a button which will be of type submit."
+
+html
+<div class="mb-3">
+    <button type="submit" class="btn btn-dark">Submit</button>
+</div>
+
+
+---
+
+ 26. "So type is equal to submit and the classes for this the visual aesthetics. We will have two classes BTN and BTN-dark and the name of this button would say submit or you can say it as save as well."
+
+* `btn` + `btn-dark` → Bootstrap dark-colored button
+* Text on button = Submit or Save
+
+---
+
+ 27. "So with that change and hot reload, I will come back and wait for the browser to reload the application. And now we have a submit button to submit this form to the controller as well."
+
+* Hot reload updates browser → submit button visible
+
+---
+
+ 28. "In the next lecture we will see how we can use the submit details or submit this form and capture the details behind the scene in the controller and how we can use that data to save the data to the database."
+
+* Next step: Controller POST action → receive form data → insert into database
+
+---
+
+ Summary of this lecture:
+
+* Aligned navbar with body (`container`)
+* Added form container with padding
+* Created Name and Display Name fields with Bootstrap classes
+* Added Submit button
+* Form ready to send data to controller using POST
+
+---
