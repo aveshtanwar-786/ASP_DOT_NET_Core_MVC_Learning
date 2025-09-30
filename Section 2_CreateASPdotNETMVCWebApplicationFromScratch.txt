@@ -1,0 +1,1799 @@
+$ Section 2.11 Create new ASP.Net MVC Web Application 
+
+---
+
+1. "In this lecture, we will create a new ASP.Net core Web application from scratch."
+   Meaning: The lesson will teach you how to start a brand-new ASP.NET Core project without using any pre-built code.
+   Why it matters: Learning to create a project from scratch helps you understand the folder structure, templates, and framework setup.
+
+---
+
+2. "This will be the web application for our dev blog."
+   Meaning: The project we are creating will be the foundation of the blog website you’ll develop throughout the course.
+   Why it matters: Knowing the project’s purpose guides your decisions (like which templates to use and which features to include).
+
+---
+
+3. "For that I have created a folder called blog MVC."
+   Meaning: The instructor has made a folder on their computer to hold the project files.
+   Why it matters: Organizing projects in dedicated folders keeps code clean and avoids confusion with other projects.
+   Practical note: You can create a folder anywhere on your PC, e.g., `C:\Projects\BlogMVC`.
+
+---
+
+4. "I want to create a dotnet web application under this folder."
+   Meaning: The project will be saved inside the `blog MVC` folder.
+   Why it matters: Setting the location ensures your project files are easy to find and manage.
+
+---
+
+5. "I will open Visual Studio and from the Get Started section over here you can see a bunch of options that you can choose from."
+   Meaning: Launch Visual Studio and check the initial screen where Visual Studio shows project creation, opening existing projects, etc.
+   Why it matters: This is where you begin any project workflow.
+
+---
+
+6. "I want to create a new project, so I will click on this button that says create a new project."
+   Meaning: Click the “Create a new project” button to start a fresh project.
+   Practical note: This is the standard starting point for any Visual Studio project.
+
+---
+
+7. "So I will click on that."
+   Meaning: Confirms the previous action — clicking “Create a new project.”
+
+---
+
+8. "This will take me to a page where I can select a few templates."
+   Meaning: Visual Studio shows templates for different project types: console apps, web apps, desktop apps, etc.
+   Why it matters: Templates provide starter code and pre-configured settings, saving setup time.
+
+---
+
+9. "From the left hand side. You can see I have recent project templates that I have chosen to create projects recently."
+   Meaning: The left panel in Visual Studio shows projects you recently created.
+   Why it matters: If you’ve made similar projects before, you can quickly select the same template.
+
+---
+
+10. "You may have this as blank, but you can choose a template from the right hand side over here."
+    Meaning: If your “recent projects” list is empty, use the right panel to pick a template.
+
+---
+
+11. "From the top filters I have C sharp, all platforms and all project types selected, and if you want, you can also choose this drop down to select web."
+    Meaning: Visual Studio allows filtering templates by language, platform, and project type.
+    Practical note: For ASP.NET Core web apps, filter by C#, Web, and All Platforms to see the correct templates.
+
+---
+
+12. "Because we want to create a web application from the selection over here, we can now choose from a ton of different templates."
+    Meaning: After filtering, Visual Studio shows multiple web project templates.
+
+---
+
+13. "I will scroll down to select this template over here that says ASP.Net Core Web Application and in brackets it says Model View Controller."
+    Meaning: The instructor chooses the ASP.NET Core Web Application (MVC) template.
+    Why it matters: MVC (Model-View-Controller) is a common pattern for web apps that separates logic, UI, and data management.
+
+---
+
+14. "It reads that it is a project template for creating an ASP.Net core application with example ASP.Net core MVC views and controllers."
+    Meaning: The template comes with sample MVC files (views, controllers) to help you get started.
+    Practical note: Even though there’s example code, you’ll eventually replace it with your own blog app code.
+
+---
+
+15. "This template can also be used for RESTful Http services, but in our case we will use it to create a web application."
+    Meaning: While MVC templates can create APIs, here we focus on building a web-based blog UI.
+
+---
+
+16. "So select this template and click on the next button."
+    Meaning: Choose MVC template and proceed to project configuration.
+
+---
+
+17. "On this page you can configure your new project."
+    Meaning: Visual Studio asks for project name, location, and solution name.
+
+---
+
+18. "From here you can give a project name, the location under which you want to save this project, and also a solution name."
+    Meaning:
+
+    * Project Name: Folder inside the solution holding code.
+    * Location: Base folder on disk where project will reside.
+    * Solution Name: Can contain multiple projects (like a container for related projects).
+
+---
+
+19. "So one solution can have multiple projects."
+    Meaning: A single solution may hold backend, frontend, test projects, etc., all grouped together.
+
+---
+
+20. "So you can configure that from this page."
+    Meaning: You can define both project and solution names/locations here.
+
+---
+
+21. "We have the location already. So I will copy this location and paste it in the location tab."
+    Meaning: The instructor sets the folder path where the project will be stored.
+
+---
+
+22. "So I want to create an application under this folder I will give my application a name."
+    Meaning: Naming the project helps identify it. Here it will be called Blog.Web.
+
+---
+
+23. "So I will call this blog dot web because it's a website."
+    Meaning: Naming convention: `.Web` indicates this is the web project.
+
+---
+
+24. "And the solution name goes with the project name. But we will remove the word dot web from it."
+    Meaning: The solution is just `Blog` while the project is `Blog.Web`.
+
+---
+
+25. "So the solution name is just blog and the project name is blog dot web."
+    Meaning: Clear separation: solution = container, project = actual website code.
+
+---
+
+26. "With this I will click on the next button."
+    Meaning: Proceed to framework selection.
+
+---
+
+27. "On this page, Visual Studio is asking about the framework that we want to use for our application."
+    Meaning: Choose which .NET version your app will target.
+
+---
+
+28. "From the dropdown over here, which is the framework dropdown, we have a few options."
+    Meaning: Visual Studio lists installed .NET versions (e.g., 6, 7, 8).
+
+---
+
+29. "Over in my system, your options could be totally different."
+    Meaning: The options depend on what .NET SDKs are installed on your computer.
+
+---
+
+30. "I have taught at five, installed dot net six, installed dot net seven, and net eight dot net five is clearly out of support."
+    Meaning: Some older versions are installed, but .NET 5 is no longer supported — stick to current LTS versions.
+
+---
+
+31. "But all these versions, which is dot net six, seven and eight are still valid and you can choose one of these."
+    Meaning: Versions 6, 7, 8 are supported; for long-term support, choose .NET 8.
+
+---
+
+32. "But for our application, make sure you follow section one videos and download and install dotnet eight SDK and runtime."
+    Meaning: Instructor recommends .NET 8 LTS — ensures compatibility with course materials.
+
+---
+
+33. "Because for our application we are going to use dotnet eight, which is the long tum support version."
+    Meaning: LTS = Long-Term Support, stable for production development.
+
+---
+
+34. "And this is the latest version at the time of this recording of this video."
+    Meaning: Just a note: newer versions may exist later, but course uses .NET 8.
+
+---
+
+35. "After selecting the framework we will select the authentication type."
+    Meaning: Visual Studio allows pre-configuring authentication (e.g., Individual User Accounts, Windows, None).
+
+---
+
+36. "I have selected that as none because we will be implementing authentication and authorization from scratch inside our application."
+    Meaning: They choose No authentication, as the course will teach it manually.
+
+---
+
+37. "After that I will have all these as as it is."
+    Meaning: All other default settings remain unchanged.
+
+---
+
+38. "So I will not play around with these options."
+    Meaning: Leave optional settings untouched.
+
+---
+
+39. "And I will click on the create button."
+    Meaning: Begin creating the project with the selected template and settings.
+
+---
+
+40. "It takes a few seconds to a minute depending on the speed of your PC."
+    Meaning: Visual Studio generates the project and folder structure.
+
+---
+
+41. "For Visual Studio to create this project, in the next lecture, we will go ahead and see what files and folders has Visual Studio created us for this new project?"
+    Meaning: After creation, you’ll explore the generated files and folder structure in the next lecture.
+
+---
+
+ Summary / Key points from this lecture:
+
+* Use Visual Studio → Create New Project → ASP.NET Core Web Application (MVC)
+* Set project name = Blog.Web, solution name = Blog
+* Choose .NET 8 as framework
+* Select authentication = None
+* Click Create → Visual Studio scaffolds project with default MVC structure
+
+---
+
+$ Section 2.12 Understand Our ASP .NET MVC Web Application and File Structure 
+
+---
+
+ 1. "In this lecture, we will understand more about the project and the files that were created as part of the project Scaffolding."
+
+* Meaning: You will learn about the folder and file structure that Visual Studio automatically created (scaffolding) when the project was generated.
+* Why it matters: Understanding scaffolding helps you know where to put your code and how the project works internally.
+
+---
+
+ 2. "Let's understand them one by one."
+
+* Meaning: The instructor will explain each file and folder individually for clarity.
+
+---
+
+ 3. "On the top here. We have the solution. Our solution is called Bloggie."
+
+* Meaning: A solution in Visual Studio is like a container for one or more projects. In this case, the solution is named `Bloggie`.
+* Why it matters: Solutions help organize multiple related projects (e.g., website, API, tests) in one workspace.
+
+---
+
+ 4. "A solution is an architecture for organizing projects."
+
+* Meaning: Think of a solution as a folder structure or blueprint for your projects.
+
+---
+
+ 5. "In here we have a single project at the moment."
+
+* Meaning: Currently, there is only one project (`Bloggie.Web`) in the solution.
+
+---
+
+ 6. "A solution can have one or many projects in them, and inside that we can consume each project as well."
+
+* Meaning: You can add multiple projects (like a web app, API, or class library) to one solution, and they can reference each other.
+
+---
+
+ 7. "Below the solution file. We have the project file. In our case it is bloggie dot web similar to our solution."
+
+* Meaning: The project is the actual code container, here called `Bloggie.Web`.
+
+---
+
+ 8. "A project is a structure for organizing files and folders."
+
+* Meaning: The project contains all your controllers, views, models, and configurations.
+
+---
+
+ 9. "So if I expand on this project, I can see different files and folders inside this project."
+
+* Meaning: You’ll see the MVC-specific folders: Controllers, Models, Views, wwwroot, and configuration files.
+
+---
+
+ 10. "If you double click on this project, we will open the blog dot web dot csproj file."
+
+* Meaning: The `.csproj` file is the main project file for .NET projects.
+
+---
+
+ 11. "You can see the different properties of the project. In our example, we are looking at the target framework, which is Dotnet seven."
+
+* Meaning: The `.csproj` file specifies settings like which .NET version the project uses (`net7.0`).
+
+---
+
+ 12. "We have the nullable as enabled and we also have implicit usings as enabled."
+
+* Meaning:
+
+  * Nullable enabled: Helps avoid null reference errors by requiring explicit handling of nulls.
+  * Implicit usings: Automatically includes common `using` statements, reducing boilerplate code.
+
+---
+
+ 13. "So these are the properties of the project."
+
+* Meaning: These settings define how the project behaves during build and runtime.
+
+---
+
+ 14. "When you add NuGet packages to our project, they also end up as a reference in this project file."
+
+* Meaning: Any external libraries (via NuGet) are listed in `.csproj` and automatically referenced in your project.
+
+---
+
+ 15. "Now let's look at the launch settings JSON file, which is under the properties folder over here."
+
+* Meaning: `launchSettings.json` contains settings for running the project, like URLs and profiles.
+
+---
+
+ 16. "So let's open that."
+
+* Meaning: Opening the file shows its contents.
+
+---
+
+ 17. "As the name suggests, the launch settings dot JSON has the configuration and launch information of this project."
+
+* Meaning: Defines how the project runs (debugging, HTTP/HTTPS URLs, and IIS Express settings).
+
+---
+
+ 18. "Stuff like profiles and application URLs reside in this launch settings dot JSON file."
+
+* Meaning: Profiles like `IIS Express`, `HTTP`, and `HTTPS` define how the app starts in different environments.
+
+---
+
+ 19. "If we look at the dropdown over here, we have the different profiles coming out over here we have the HTTP profile, we have the HTTPS profile, which is the selected one. We also have the IIS express profile over here."
+
+* Meaning: Multiple ways to run the app:
+
+  * HTTP: Standard protocol
+  * HTTPS: Secure protocol
+  * IIS Express: Local lightweight web server for testing
+
+---
+
+ 20. "We have these profiles from these columns over here. So in the JSON file we have configuration for the HTTP profile, the HTTPS profile, and the IIS express one."
+
+* Meaning: `launchSettings.json` maps these profiles with URLs and settings.
+
+---
+
+ 21. "At the moment we are using the HTTPS profile."
+
+* Meaning: The app will run securely ([https://localhost](https://localhost)) during testing.
+
+---
+
+ 22. "If you want, you can also rename this, so I can rename this to blog https and that gets renamed over here."
+
+* Meaning: Profile names can be customized in the dropdown and JSON.
+
+---
+
+ 23. "So now I can select it blog https profile and that has the application URL of localhost 7100 and localhost 5177 based on the https version and the HTTP version, the application URLs for your created project may be different, so make sure you go to the launch settings dot JSON to have a look at the application URL for your project."
+
+* Meaning: The URLs indicate where your app runs locally. Always check your own project URL before testing.
+
+---
+
+ 24. "After that we have the W.w.w root folder over here."
+
+* Meaning: `wwwroot` is the web root folder, holding all public static files like CSS, JS, and images.
+
+---
+
+ 25. "Static files such as HTML, CSS and JavaScript and images are assets that an ASP.NET Core application serves directly to its clients."
+
+* Meaning: Anything in `wwwroot` can be accessed directly in the browser.
+
+---
+
+ 26. "By default, static files are stored within the project's web root directory, which is also known as the W.w.w root directory over here."
+
+* Meaning: `wwwroot` is the standard folder for static files.
+
+---
+
+ 27. "This also means that any files under this folder are publicly and directly accessible by the client that is your browser."
+
+* Meaning: Example: `wwwroot/css/site.css` → accessible as `https://localhost:7100/css/site.css`.
+
+---
+
+ 28. "So any CSS or JavaScript that we want to expose to the client, we will store it over here."
+
+* Meaning: Keep all front-end assets in `wwwroot`.
+
+---
+
+ 29. "The next folder we have is the controllers folder."
+
+* Meaning: Controllers handle user requests and send responses.
+
+---
+
+ 30. "The controllers folder contain class files for the controllers."
+
+* Meaning: Each controller is a C# class ending with `Controller` (e.g., `HomeController.cs`).
+
+---
+
+ 31. "A controller handles user requests and returns a response."
+
+* Meaning: Example: `HomeController → Index()` returns a web page view.
+
+---
+
+ 32. "In MVC, we require the controller files. Controller files to end with the controller keyword over here."
+
+* Meaning: Naming convention: `SomethingController`.
+
+---
+
+ 33. "You will learn more about controllers and how to create a new controller in a future section."
+
+* Meaning: Controller creation and routing will be explained later.
+
+---
+
+ 34. "After that, we have the models folder."
+
+* Meaning: Models represent data and business logic.
+
+---
+
+ 35. "The models folder contains model class files."
+
+* Meaning: Classes in `Models` store and manipulate data.
+
+---
+
+ 36. "Typically, model class includes public properties which will be used by the application, including the controllers to hold and manipulate application data."
+
+* Meaning: Example: `BlogPost` model has `Title`, `Content`, `Author`.
+
+---
+
+ 37. "After the models. We have the views folder."
+
+* Meaning: `Views` contain HTML (or CSHTML) templates rendered for the user.
+
+---
+
+ 38. "The views folder contains HTML files for the application. Typically view file is a dot html file where you write HTML and C-sharp code."
+
+* Meaning: CSHTML files combine HTML with C# Razor syntax.
+
+---
+
+ 39. "The views folder include a separate folder for each controller files."
+
+* Meaning: Organization: Each controller has its own folder in `Views` (e.g., `Views/Home/`).
+
+---
+
+ 40. "For example, all Cshtml files which will be rendered by the home controller over here are included in the home folder inside the views folder."
+
+* Meaning: Example: `Views/Home/Index.cshtml` is served by `HomeController → Index()`.
+
+---
+
+ 41. "We also have the shared folder under which we have the views that will be shared amongst all the different controllers."
+
+* Meaning: `Views/Shared` contains layouts, partial views, and reusable templates.
+
+---
+
+ 42. "We also have the layout file, which is the layout for this application under this shared folder."
+
+* Meaning: `_Layout.cshtml` defines the common header, footer, and navigation for all pages.
+
+---
+
+ 43. "Stuff like partial views also go inside the shared folder, inside the views folder over here."
+
+* Meaning: Partial views = reusable chunks of HTML (e.g., sidebar, login box).
+
+---
+
+ 44. "Now let's talk about the app settings dot JSON file."
+
+* Meaning: `appsettings.json` stores configuration like database connections, keys, and logging.
+
+---
+
+ 45. "All the application settings are contained inside this file."
+
+* Meaning: Any configurable values your app needs can be stored here.
+
+---
+
+ 46. "Any changes made inside this application or JSON file will require restarting the Microsoft IIS administration inside app settings for JSON."
+
+* Meaning: When you change `appsettings.json`, restart the app to apply changes.
+
+---
+
+ 47. "We can see there are few details available, such as logging, the log level and other stuff."
+
+* Meaning: Example: default logging configuration is included.
+
+---
+
+ 48. "In here we will use this file to create other configuration like the database connection and storing keys, etcetera."
+
+* Meaning: You’ll add your connection strings, API keys, and app-specific configs.
+
+---
+
+ 49. "We can access all these variables inside our program with an ASP.NET six or ASP.NET seven project."
+
+* Meaning: Configuration variables are easily retrievable using dependency injection in `Program.cs`.
+
+---
+
+ 50. "You will not find the Startup.cs file if you are coming from a previous version of Dotnet. You might be just seeing the Program.cs file and that is what we will discuss next."
+
+* Meaning: .NET 6+ merges `Startup.cs` into `Program.cs` for simplicity.
+
+---
+
+ 51. "You might see that everything that was inside the startup has now been clubbed together with the Program.cs file."
+
+* Meaning: Services registration, middleware, and routing are now handled in `Program.cs`.
+
+---
+
+ 52. "The program dot CSS file is the entry point of the application. This will be executed first when the application runs."
+
+* Correction: `Program.cs` (not CSS) is the main entry point that boots up the app.
+
+---
+
+ 53. "We first add services to this file or to our application. And these are our containers."
+
+* Meaning: Services (like DB context, logging) are registered in `Program.cs`.
+
+---
+
+ 54. "ASP.NET supports dependency injection software design pattern, which is a technique for achieving inversion of control between classes and their dependencies."
+
+* Meaning: Dependency Injection (DI) allows classes to get required services without creating them manually.
+
+---
+
+ 55. "Dependency in Dotnet is a built in part of the framework. We can inject our services into the Dotnet container by accessing the services collection in the builder object."
+
+* Meaning: ASP.NET Core has a built-in DI container via `builder.Services`.
+
+---
+
+ 56. "An example of this is adding controllers with views into the services and that's part of the builder object over here."
+
+
+* Meaning: `builder.Services.AddControllersWithViews()` registers controllers to be used by the framework.
+
+---
+
+ 57. "Dependency injection can be a little tricky if you are just starting out, but trust me, you will fall in love with it when you understand it fully."
+
+* Meaning: DI may feel complex initially but is very useful for scalable and testable applications.
+
+---
+
+ 58. "So don't hold yourself back from learning anything you can do to understand dependency injection and specifically in Dotnet core."
+
+* Meaning: Invest time in learning DI — it’s fundamental for .NET Core development.
+
+---
+
+ 59. "After that, we have the request pipeline configured over here."
+
+* Meaning: ASP.NET Core uses a request pipeline where incoming HTTP requests pass through middleware.
+
+---
+
+ 60. "By using the request pipeline, we add middleware, which is a software that is assembled into an application pipeline to handle requests and responses."
+
+* Meaning: Middleware are functions that can process requests and responses (e.g., authentication, routing, error handling).
+
+---
+
+ 61. "These are the middleware that have been configured in our application. We have https redirection. We have using static files, we have routing authorization and other stuff."
+
+* Meaning: Example middleware:
+
+  * HTTPS redirection → redirect HTTP to HTTPS
+  * Static files → serve `wwwroot` files
+  * Routing → handle URL patterns
+  * Authorization → enforce security
+
+---
+
+ 62. "The order in which these are configured is very important."
+
+* Meaning: Middleware executes in sequence; wrong order can break functionality.
+
+---
+
+ 63. "Finally, after adding everything into the request pipeline, we run our application and then the project starts."
+
+* Meaning: The last line in `Program.cs` is usually `app.Run();` which launches the app.
+
+---
+
+ 64. "And then we wait for a user to create an action so that the controllers can handle it."
+
+* Meaning: After the app runs, it listens for HTTP requests, and controllers respond.
+
+---
+
+ 65. "So this was a brief about all the files and folder structure for MVC."
+
+* Meaning: Summary: we’ve covered solution, project, `wwwroot`, controllers, models, views, Program.cs, appsettings.json, and launch settings.
+
+---
+
+ 66. "In the next lecture, we will create our domain model for our application."
+
+* Meaning: Next step is defining the main data models that represent your blog’s structure (e.g., BlogPost, Author).
+
+---
+
+$ Section 2.13 Create Domain Models (Blog Post and Tag)
+
+---
+
+ 1. "In this lecture, we will go ahead and create the domain models for our blog application."
+
+* Meaning: A domain model is a class that represents real-world data or objects in your application.
+* Example: For a blog, domain models could be `BlogPost` and `Tag`.
+
+---
+
+ 2. "We will start first with the admin functionality."
+
+* Meaning: The first focus is on features accessible by an admin, like creating blog posts and managing tags.
+
+---
+
+ 3. "As an admin of this blog, the admin would be able to create a blog post just like you see on other websites on the internet and also tags to these blog posts."
+
+* Meaning: Admin can add posts and categorize them using tags (like hashtags).
+
+---
+
+ 4. "Tags will be something like hash tags."
+
+* Meaning: Tags help group posts by topics. For example: `#HTML`, `#CSS`.
+
+---
+
+ 5. "For example, if a blog is a dev blog on HTML, CSS and C-sharp, so the tags will be HTML, CSS and C-sharp."
+
+* Meaning: Tags act as categories or labels for the blog post content.
+
+---
+
+ 6. "So tags will serve as categories for these blog posts."
+
+* Meaning: Tags help organize and filter blog posts by topic.
+
+---
+
+ 7. "Let's start with the blog post first."
+
+* Meaning: First domain model to create is the BlogPost.
+
+---
+
+ 8. "A blog post will have the below structure. It will have an ID, which will be a unique identifier."
+
+* Meaning: Each blog post must have a unique ID (usually an integer or GUID) to distinguish it.
+
+---
+
+ 9. "The blog will also have a heading which we will use as a H1 tag."
+
+* Meaning: `Heading` is the main title of the blog post, displayed in HTML `<h1>` tag.
+
+---
+
+ 10. "We will also have a page title."
+
+* Meaning: `PageTitle` is often used for SEO and browser tabs.
+
+---
+
+ 11. "After the page title, we will have the content for the blog and this will record HTML structure of the blog content inside this column."
+
+* Meaning: `Content` stores the full blog post, usually including HTML formatting.
+
+---
+
+ 12. "We will also have a short description which just gives the summary of this blog."
+
+* Meaning: `ShortDescription` is a brief summary or teaser of the blog post.
+
+---
+
+ 13. "It will have a featured image URL column which will have the URL of the featured image that will be used at the top of the blog."
+
+* Meaning: `FeaturedImageUrl` stores the image path displayed at the top of the blog post.
+
+---
+
+ 14. "It will have a URL handle. It sometimes is also called a slug."
+
+* Meaning: `UrlHandle` or slug is the part of the URL that identifies the post.
+* Example: `blog.com/my-first-blog-post` → `my-first-blog-post` is the slug.
+
+---
+
+ 15. "After that we have the published date, which will be a date time, and then we have the author information who wrote the blog."
+
+* Meaning: `PublishedDate` stores when the blog is published, `Author` stores who wrote it.
+
+---
+
+ 16. "Then we also have a boolean flag for visible. Enabling or disabling. This flag will make sure that your blog is hidden or displayed on the website along with the blog post Domain model."
+
+* Meaning: `Visible` is a `bool` property; if `true`, blog shows on website; if `false`, it’s hidden.
+
+---
+
+ 17. "We will also have a tag domain model which will just have three properties."
+
+* Meaning: `Tag` domain model stores information about tags (categories).
+
+---
+
+ 18. "The first one is a unique identifier, which is the ID."
+
+* Meaning: `Tag` also needs a unique `ID`.
+
+---
+
+ 19. "Then we will have a name for the tag that we just saw in the examples, for example HTML."
+
+* Meaning: `Name` property stores the tag itself (`HTML`, `CSS`, etc.).
+
+---
+
+ 20. "Then we can also use a display name to have these tags as categories because we can't use spaces in these tags because we want to use it in the URL."
+
+* Meaning: `DisplayName` is a human-readable name, while `Name` is URL-safe (no spaces).
+
+---
+
+ 21. "So for example, if your website is blogger.com, we want to use it as blog.com/tags/HTML and that will give you all the blogs for the HTML tag."
+
+* Meaning: URL-friendly tag names allow routing/filtering by tag in the application.
+
+---
+
+ 22. "So for display purposes, we will use it a different column."
+
+* Meaning: `DisplayName` is separate for showing in UI, while `Name` is for URLs.
+
+---
+
+ 23. "And you may have figured it out already, but blog posts and tags are connected."
+
+* Meaning: There is a relationship between BlogPost and Tag models.
+
+---
+
+ 24. "One blog can have multiple tags, so a blog written on how to host a free website can have CSS and HTML tag and maybe some JavaScript tag or Azure or other platforms."
+
+* Meaning: This is a many-to-many relationship (one blog → multiple tags).
+
+---
+
+ 25. "And one tag can display multiple blogs."
+
+* Meaning: Example: `HTML` tag can link to multiple blogs.
+
+---
+
+ 26. "Now that we know what our domain models are, let's go back to Visual Studio and create these domain models for our application."
+
+* Meaning: Time to implement these models as C# classes in the project.
+
+---
+
+ 27. "We have a folder here already which says models, but we want to create domain models so we will segregate them separately and we will create a new folder inside these this models folder."
+
+* Meaning: Create a `Domain` folder inside `Models` to store domain-specific classes.
+
+---
+
+ 28. "The first domain model we want to add is the blog post."
+
+* Meaning: Start by creating `BlogPost.cs`.
+
+---
+
+ 29. "We have a class created with no properties inside it. This is a public class so that we can use it inside our application."
+
+* Meaning: A public class can be accessed throughout the app.
+
+---
+
+ 30. "Now we will start creating properties for our domain model and we will use these properties throughout our application."
+
+* Meaning: Properties define the fields (columns) for the database table and class structure.
+
+---
+
+ 31. "A way to create a property is to just type it out or there's a shortcut for us that we can use, which is prop and then press tab twice."
+
+* Meaning: `prop` + `Tab` + `Tab` → Visual Studio snippet to quickly create a property.
+
+---
+
+ 32. "The first is the access modifier of this property, which is public. Then it is the type of the property. Then the name of the property, and then the getters and setters."
+
+* Meaning: Example: `public string Heading { get; set; }`
+
+---
+
+ 33. "So first we want to create a property, as we saw in the presentation. So we want to create a unique identifier, which is the ID, So the unique identifier in Dotnet is good."
+
+* Meaning: `public int Id { get; set; }` or `public Guid Id { get; set; }`
+
+---
+
+ 34. "Then we will create another property called heading, type string."
+
+* Meaning: `public string Heading { get; set; }`
+
+---
+
+ 35. "After that, we add the page title, content, short description, featured image URL, URL handle, published date, author, and visible."
+
+* Meaning: Create properties as described earlier with appropriate types (`string`, `DateTime`, `bool`).
+
+---
+
+ 36. "After that, we need the domain model for the tag so that we can save it to the database."
+
+* Meaning: Create `Tag.cs` class with `Id`, `Name`, `DisplayName`.
+
+---
+
+ 37. "One blog post can have multiple tags and one tag can have multiple blog posts attached to it. So it's a many-to-many relationship."
+
+* Meaning: Many-to-many relationship in Entity Framework requires navigation properties in both classes.
+
+---
+
+ 38. "We will use Entity Framework Core (EF Core) to map these domain models to SQL tables."
+
+* Meaning: EF Core automatically creates database tables and relationships from these models.
+
+---
+
+ 39. "We create an `ICollection<Tag>` in BlogPost and `ICollection<BlogPost>` in Tag to establish the many-to-many relationship."
+
+* Meaning: These navigation properties tell EF Core how the models relate.
+
+---
+
+ 40. "Green squigglies under properties indicate non-nullable fields that must have values when saving to the database."
+
+* Meaning: Non-nullable properties (`string`, `int`) must always have a value; otherwise EF Core will throw an error.
+
+---
+
+ 41. "If you want a property to be nullable, add a `?` after the type (e.g., string? Heading)."
+
+* Meaning: Nullable properties allow `null` values in the database.
+
+---
+
+ 42. "Now that we have created our domain models, we need Entity Framework to create these domain models into actual SQL tables."
+
+* Meaning: EF Core migrations will create tables in the database based on these models.
+
+---
+
+ 43. "In the next lecture we will go on and install some packages for Entity Framework Core."
+
+* Meaning: Before using EF Core, we need to install NuGet packages for EF Core and SQL Server support.
+
+---
+
+$ Section 2.14 Adding Entity framework Core Packages
+
+---
+
+ 1. "In this lecture, we will go ahead and install some packages for Entity Framework Core."
+
+* Meaning: EF Core is a framework that allows us to interact with databases using C# classes instead of raw SQL.
+* To use EF Core, we need to install it via NuGet packages, which are libraries for .NET projects.
+
+---
+
+ 2. "Let's come back to Visual Studio and we want to install two packages for Entity Framework Core."
+
+* Meaning: Visual Studio is the IDE we’re using, and we will add two specific EF Core packages needed for SQL Server integration and migrations.
+
+---
+
+ 3. "Let's right click on dependencies and go to this option that says Manage NuGet Packages."
+
+* Explanation:
+
+  * Every .NET project has a Dependencies folder.
+  * Right-clicking it → Manage NuGet Packages → opens a window to browse, install, update, or remove packages.
+
+---
+
+ 4. "This is the window where we can find and install NuGet packages for our application."
+
+* Meaning: NuGet is the package manager for .NET, similar to npm for JavaScript.
+
+---
+
+ 5. "On the Browse section over here, click on browse and search for two packages."
+
+* Meaning: The Browse tab allows searching for packages online that you can add to your project.
+
+---
+
+ 6. "The first package that we want to search and install is Microsoft DOT Entity Framework Core DOT SQL Server."
+
+* Meaning: This package is called `Microsoft.EntityFrameworkCore.SqlServer`.
+* Purpose: It allows EF Core to interact with SQL Server databases. Without it, EF Core won’t know how to communicate with SQL Server.
+
+---
+
+ 7. "I will copy this and paste it in the Browse location and hit enter."
+
+* Meaning: Type or paste `Microsoft.EntityFrameworkCore.SqlServer` in the search bar to locate the package.
+
+---
+
+ 8. "We have this package over here, which is Microsoft DOT Entity Framework Core DOT SQL Server."
+
+* Meaning: You’ll see the correct package in the search results.
+
+---
+
+ 9. "I will click on this and install the latest version because I have Dotnet version seven and this is also the latest stable version."
+
+* Explanation:
+
+  * The package version must match your .NET version.
+  * Using an older or incompatible version may cause errors.
+
+---
+
+ 10. "So make sure your package version and the Dotnet framework version you have used to create this project matches."
+
+* Important point: EF Core packages must be compatible with your project’s .NET version (`.NET 7`, `.NET 8`, etc.).
+
+---
+
+ 11. "So I will click on install."
+
+* Meaning: Click Install to add the package to your project. Visual Studio will download and add it to your dependencies.
+
+---
+
+ 12. "This has now been installed and we want to install another package and that is Microsoft DOT Entity Framework core.tools."
+
+* Meaning: The second package is `Microsoft.EntityFrameworkCore.Tools`.
+
+---
+
+ 13. "This is the package responsible to run migrations so that Entity Framework Core can create tables inside our database."
+
+* Explanation:
+
+  * EF Core Tools allows running commands like `Add-Migration` and `Update-Database`.
+  * These commands automatically create tables in the database from your domain models.
+
+---
+
+ 14. "So I will browse for this package."
+
+* Meaning: Search for `Microsoft.EntityFrameworkCore.Tools` in the NuGet package manager.
+
+---
+
+ 15. "And then I have it on the first row over here, which is Microsoft Dot Entity Framework Core.Tools."
+
+* Meaning: Once found, select it in the results.
+
+---
+
+ 16. "I will select this and click on install."
+
+* Meaning: Installing this package allows running EF Core CLI commands for migrations.
+
+---
+
+ 17. "I will also go ahead and give the names of these two packages into the notes attached to this lecture so that you can open up notepad and directly copy the package names from there."
+
+* Meaning: Convenience tip: Save package names so you can quickly reference them without searching again.
+
+---
+
+ 18. "So we have installed both the packages for Entity Framework Core."
+
+* Meaning: Now your project has everything needed to interact with SQL Server and run migrations.
+
+---
+
+ 19. "So in the next lecture we will go ahead and create a DbContext class for Entity Framework."
+
+* Meaning: Next step:
+
+  * DbContext is the main class EF Core uses to manage database connections and map domain models to tables.
+  * It’s where you define which models become tables and configure relationships.
+
+---
+
+ Summary:
+
+1. Open NuGet Package Manager.
+2. Install `Microsoft.EntityFrameworkCore.SqlServer` → to connect to SQL Server.
+3. Install `Microsoft.EntityFrameworkCore.Tools` → to run migrations.
+4. Versions must match your .NET project version.
+5. Next, create DbContext to start working with the database.
+
+---
+
+$ Section 2.15 Creating the DBContext Class 
+
+---
+
+ 1. "In this lecture we will add a new DbContext class."
+
+* Meaning: A DbContext is a special class in Entity Framework Core (EF Core) that acts as a bridge between your C# domain models and your database tables.
+* Every EF Core application needs at least one DbContext class.
+
+---
+
+ 2. "A DbContext class is an important class inside Entity Framework."
+
+* Meaning: Without a DbContext, EF Core cannot know how to map your models to database tables, so it is crucial.
+
+---
+
+ 3. "It is a bridge between your domain models and the database."
+
+* Explanation:
+
+  * Domain models = C# classes like `BlogPost` and `Tag`.
+  * Database = SQL tables.
+  * DbContext connects the two so that EF Core can read/write data.
+
+---
+
+ 4. "By defining DbSet properties inside the DbContext class, you tell Entity Framework, and when Entity Framework Core runs migrations, you are telling Entity Framework what classes or what tables and columns to create in what fashion."
+
+* Meaning:
+
+  * `DbSet<T>` = a property in the DbContext representing a table in the database.
+  * Example: `DbSet<BlogPost> BlogPosts;` → creates a `BlogPosts` table.
+  * When we run migrations, EF Core reads DbSet properties and generates the tables automatically.
+
+---
+
+ 5. "We also define the relationship between different domain models or entities or tables through the DbContext class."
+
+* Explanation:
+
+  * If `BlogPost` and `Tag` have a many-to-many relationship, DbContext will help EF Core understand how to link them in the database.
+
+---
+
+ 6. "So we can say that the DbContext class is the primary class that is responsible for interacting with the database and performing CRUD operations on our database tables."
+
+* CRUD = Create, Read, Update, Delete.
+* Meaning: All database operations go through the DbContext.
+
+---
+
+ 7. "So now that we know why we need a DbContext class, let's come back to our code and create one."
+
+* Meaning: Time to implement it in Visual Studio.
+
+---
+
+ 8. "We are back inside Visual Studio and in here the first thing we want to do is to create a table or a folder on the project."
+
+* Meaning: Create a folder to organize DbContext class for better project structure.
+
+---
+
+ 9. "I will right click go to add and create a new folder for our DbContext."
+
+* Explanation: Right-click on project → Add → New Folder.
+
+---
+
+ 10. "We will call this the Data folder."
+
+* Convention: Typically, DbContext and database-related classes are placed inside a folder named `Data`.
+
+---
+
+ 11. "Inside the Data folder, we want to create our DbContext, which is just a class."
+
+* Meaning: DbContext is just a C# class, but it inherits from the EF Core `DbContext` base class.
+
+---
+
+ 12. "So I will right click on Data, add a new class."
+
+* Explanation: Add → Class → name it `BlogDbContext.cs`.
+
+---
+
+ 13. "Now we installed Entity Framework Core packages and Entity Framework Core knows about the DbContext."
+
+* Meaning: EF Core provides the `DbContext` base class, which we can now inherit.
+
+---
+
+ 14. "So we want to inherit from a class that comes from the package that we just installed."
+
+* Syntax: `public class BlogDbContext : DbContext`
+* `DbContext` is part of EF Core package.
+
+---
+
+ 15. "And this class won't be available as of now. But if I click on this keyword and press Control + dot, I can import the dependencies from here."
+
+* Explanation: Visual Studio shortcut → Ctrl + . → adds the `using Microsoft.EntityFrameworkCore;` statement automatically.
+
+---
+
+ 16. "After that, we want to create a constructor for this class, and there's a shortcut for that because we want to create a constructor with the DbContext options and I will explain why."
+
+* Meaning: A constructor is needed so we can pass configuration options (like connection string) to DbContext.
+
+---
+
+ 17. "I will click on this BlogDbContext and press Ctrl + dot again. From these options I will select Generate constructor, BlogDbContext with the options parameter."
+
+* Explanation: Visual Studio automatically generates the constructor that accepts DbContextOptions, which is required by EF Core.
+
+---
+
+ 18. "What's happening over here is we will later on overwrite these DbContext options from the Program.cs file and we want to pass these options to the base class and hence we are creating this constructor with the DbContext options parameter."
+
+* Meaning:
+
+  * `DbContextOptions` contains database connection info and configuration.
+  * The base `DbContext` class uses this to know which database to connect to.
+
+---
+
+ 19. "Now that we have the constructor ready, it's now time to create the entities or the tables that later on Entity Framework Core will create inside our database."
+
+* Meaning: Next, we define DbSet properties in DbContext, which map domain models to tables.
+
+---
+
+ 20. "So we need two properties over here which will correspond to the two domain models that we have, one for the BlogPost and one for Tag."
+
+* Meaning: We have two domain models: `BlogPost` and `Tag`.
+* Each will have a DbSet property in DbContext.
+
+---
+
+ 21. "So I will create the first property and you know how to create a property. The shortcut for that is prop double tab and this property will be of type DbSet."
+
+* Explanation: `prop + Tab + Tab` → Visual Studio shortcut for creating properties.
+* Type = `DbSet<T>` → EF Core table mapping.
+
+---
+
+ 22. "And DbSet takes a type entity, and the entity for the first DbSet will be BlogPost."
+
+* Syntax: `public DbSet<BlogPost> BlogPosts { get; set; }`
+
+---
+
+ 23. "Now it's time to rename this property. So I will call my table BlogPosts. Entity Framework Core will use this name to create the table inside the database."
+
+* Meaning: EF Core creates a table named `BlogPosts` automatically using this property name.
+
+---
+
+ 24. "After that, we need another property for the tags so that Entity Framework Core can create the Tags table."
+
+* Syntax: `public DbSet<Tag> Tags { get; set; }`
+
+---
+
+ 25. "So we will have two tables after this: BlogPosts and Tags, and we will have another table which connects these two because we have a relationship between these two as one blog can have many tags and one tag can have many blog posts."
+
+* Explanation:
+
+  * EF Core will also create a join table automatically for the many-to-many relationship.
+  * Example: `BlogPostTags` table.
+
+---
+
+ 26. "So it's a many-to-many relationship and we will see how the table looks like in the SQL database later on."
+
+* Meaning: One blog ↔ multiple tags; one tag ↔ multiple blogs.
+
+---
+
+ 27. "Now that the DbContext class is ready, in the next lecture, we will go ahead and add a connection string to our database and the server inside the Appsettings.json file."
+
+* Meaning:
+
+  * The DbContext knows what tables exist, but it still needs a database to connect to.
+  * Connection string = database location and credentials, which goes in `appsettings.json`.
+
+---
+
+ Summary:
+
+1. Create a Data folder for organization.
+2. Add BlogDbContext.cs class.
+3. Inherit from `DbContext` (EF Core base class).
+4. Generate a constructor with DbContextOptions.
+5. Add DbSet<BlogPost> BlogPosts and DbSet<Tag> Tags.
+6. EF Core will use this to create tables and manage relationships.
+
+---
+
+$ Section 1.16 Adding Connection String to the Database in Appsettings.JSON
+
+---
+
+ 1. "In this lecture, we will add a connection string to our SQL Server and also provide the name for our new database that we want to create."
+
+* Meaning: A connection string tells your application how to connect to a database.
+* Here, we are connecting Entity Framework Core (EF Core) to SQL Server and specifying the database name to use or create.
+
+---
+
+ 2. "So for that, I will come back to my application."
+
+* Meaning: Open the ASP.NET Core project in Visual Studio.
+
+---
+
+ 3. "And to create a new connection string, we want to add it inside the Appsettings.json file."
+
+* Explanation:
+
+  * `appsettings.json` = a configuration file in ASP.NET Core.
+  * You store settings like connection strings, logging info, API keys, etc. here.
+
+---
+
+ 4. "So I will open that file."
+
+* Open `appsettings.json` in Visual Studio.
+
+---
+
+ 5. "And after the allowed hosts, we want to create a new property for connection strings."
+
+* AllowedHosts = existing property in `appsettings.json`.
+* New property: `ConnectionStrings` is a JSON object where we will define database connection info.
+
+---
+
+ 6. "So I will put a comma and in the next line I will open and close the double quotes."
+
+* JSON syntax: Each property is like `"PropertyName": "Value"`.
+* Add a comma after the previous property (`AllowedHosts`) and then create `"ConnectionStrings": { }`.
+
+---
+
+ 7. "And it's suggesting us to add connection strings, which I won't do."
+
+* Visual Studio may auto-suggest templates. We are writing it manually.
+
+---
+
+ 8. "So the property connection strings will be."
+
+json
+"ConnectionStrings": { }
+
+
+* Meaning: This is a container for one or more connection strings.
+
+---
+
+ 9. "And inside the curly braces we will have the name of the connection string inside double quotes."
+
+* Each connection string needs a key (name). Example: `"BloggieDBConnectionString"`.
+
+---
+
+ 10. "And then we want to add the value to it."
+
+* Value = actual connection string that EF Core will use to connect to SQL Server.
+
+---
+
+ 11. "So after a colon and inside double quotes, I will put the value of the connection string and Entity Framework Core will use this value to connect to that SQL server."
+
+* Syntax example:
+
+json
+"BloggieDBConnectionString": "Server=localhost\\MSSQLSERVER01;Database=BlogDB;Trusted_Connection=True;TrustServerCertificate=True;"
+
+
+* EF Core reads this when initializing DbContext.
+
+---
+
+ 12. "So I will start with the server information."
+
+* Server = name of SQL Server instance installed on your machine.
+
+---
+
+ 13. "So server is equal to and I want to give the name of the SQL Server installed on my machine."
+
+* Syntax: `Server=localhost\InstanceName;`
+* Example: `localhost\MSSQLSERVER01`
+
+---
+
+ 14. "So I will open Microsoft SQL Server. And if you followed the installation videos in section one, we have installed SQL Server on our machine."
+
+* Meaning: Check your SQL Server instance name to use in the connection string.
+
+---
+
+ 15. "The name of the server that I gave during the installation was localhost backslash MsSQLServer01."
+
+* Meaning: `localhost` = your computer, `\MsSQLServer01` = named instance.
+
+---
+
+ 16. "Yours could be totally different, so you can just try connecting to it with the SQL Server that you had installed."
+
+* Explanation: Instance names may vary; check SQL Server Management Studio (SSMS).
+
+---
+
+ 17. "And it connects. And I have databases in it, but I don't have a blog DB which I want to use, so I can use this server and pass the information to Entity Framework."
+
+* Meaning: EF Core can create the database automatically if it doesn’t exist.
+
+---
+
+ 18. "So I will disconnect this or somehow rename the name of the server. So I will copy this server name and come back to my application and paste it for the server over here."
+
+* Paste your SQL Server instance in the connection string.
+
+---
+
+ 19. "After that I will put a semicolon and give the database information."
+
+* Syntax: `Database=DatabaseName;`
+
+---
+
+ 20. "So I will write database is equal to and we don't have a database with us. We want to create a new database so you can give any name over here and that will be the name that Entity Framework Core will use to create the database."
+
+* Example: `Database=BlogDB;`
+* EF Core will generate this database when migrations run.
+
+---
+
+ 21. "Then put a semicolon and add two pieces of information. One we want to write Trusted_Connection=True."
+
+* Trusted_Connection=True: Uses Windows authentication to connect to SQL Server.
+
+---
+
+ 22. "And I want to add another piece of information. So after another semicolon, I will write TrustServerCertificate=True."
+
+* TrustServerCertificate=True: Prevents SSL errors if using self-signed certificates for HTTPS connections to SQL Server.
+
+---
+
+ 23. "And with all this information inside the connection string, I will now go on to inject the DbContext inside the Program.cs. But that we will do in the next lecture."
+
+* Next step: Use this connection string in Program.cs to configure DbContext so EF Core knows where the database is.
+
+---
+
+ Example final connection string in appsettings.json:
+
+json
+{
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "BloggieDBConnectionString": "Server=localhost\\MSSQLSERVER01;Database=BlogDB;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+}
+
+
+---
+
+$ Section 2.17 Injecting DbContext Into Our Application 
+
+---
+
+ 1. "Now that we have added the connection string to our SQL Server database, we have to inject our DbContext class inside the services of our application using dependency injection so that whenever we have to talk to the database, the application will smartly handle all the connections and instances and will provide us the data smoothly."
+
+* Meaning:
+
+  * DbContext = class that connects your application to the database.
+  * Dependency Injection (DI) = a design pattern where the framework provides instances of classes automatically instead of creating them manually.
+  * By injecting `DbContext` into the services container, ASP.NET Core handles creating and managing database connections efficiently.
+
+---
+
+ 2. "We are back in our application and this time I will open the Program.cs file to inject the DbContext in our application and we want to inject it in the services container over here."
+
+* Program.cs = entry point of an ASP.NET Core application.
+* Services container = a place where ASP.NET Core stores all services (like `DbContext`) for dependency injection.
+
+---
+
+ 3. "So after we have this line `builder.Services.AddControllersWithViews`, I will add another line to inject the DbContext."
+
+* `builder.Services.AddControllersWithViews()` = registers MVC controllers with views as a service.
+* Next step: Add a line to register `DbContext` as a service so it can be used anywhere via DI.
+
+---
+
+ 4. "So I will tell the builder.Services to add the DbContext. So AddDbContext and you can see it takes a type of context."
+
+* `AddDbContext<T>()` = method that registers your DbContext (`T`) in the DI container.
+* The framework will create instances of this class whenever needed.
+
+---
+
+ 5. "So we have the type as BlogDbContext, which is our DbContext class so that we will provide over here. So BlogDbContext and it takes from the data folder and here's the using statement for that."
+
+* BlogDbContext = the class we created for EF Core that contains `DbSet<BlogPost>` and `DbSet<Tag>`.
+* We add a `using` statement so the compiler knows where `BlogDbContext` is located.
+
+---
+
+ 6. "After that we want to give the options and these are the same DbContext options that we used in the constructor over here."
+
+* DbContextOptions = settings for DbContext, like which database to connect to (SQL Server, SQLite, etc.).
+* These options are passed during injection to configure the DbContext.
+
+---
+
+ 7. "So now we want to give those options inside here during the injection and we want to tell which type of server we are using."
+
+* Meaning: Specify that we are using SQL Server and provide the connection string.
+
+---
+
+ 8. "So I will start with options, such that and I can come to the next line so it is more readable. Options.UseSqlServer."
+
+* `options.UseSqlServer()` = method that tells EF Core to use SQL Server as the database provider.
+
+---
+
+ 9. "So we want to use SQL Server and it's coming from this package over here. So I can write, UseSqlServer and import this package which is using Microsoft.EntityFrameworkCore."
+
+* Namespace: `Microsoft.EntityFrameworkCore` contains the extension method `UseSqlServer()`.
+* You may need to manually add it if Visual Studio does not auto-import.
+
+---
+
+ 10. "If Visual Studio doesn't suggest you directly, you can type your package over here and then it will all be fine."
+
+* Meaning: Just ensure the correct using directive exists:
+
+csharp
+using Microsoft.EntityFrameworkCore;
+
+
+---
+
+ 11. "After that, we want to give the connection string to this SQL Server. So if I open the bracket over here, you can see that it is asking us for a connection string of type string."
+
+* Use: EF Core needs the actual database connection string to connect to SQL Server.
+
+---
+
+ 12. "So we have the connection string with us which is inside the appsettings.json file and that is what we will provide during this injection, but we won't provide a hardcoded value."
+
+* Important: Never hardcode the connection string. Use `appsettings.json` to make it configurable and safe.
+
+---
+
+ 13. "We will use the builder again to fetch it from the appsettings.json based on the name."
+
+* Meaning: Use `builder.Configuration.GetConnectionString("Name")` to fetch it dynamically.
+
+---
+
+ 14. "So over here I will say `builder.Configuration.GetConnectionString()` and inside a string I will write 'BlogDBConnectionString' and after that I can close this bracket from this method and put a semicolon to end the statement."
+
+* Syntax:
+
+csharp
+builder.Services.AddDbContext<BlogDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("BlogDBConnectionString")
+    )
+);
+
+
+* Explanation:
+
+  * `builder.Configuration.GetConnectionString("BlogDBConnectionString")` fetches the value from `appsettings.json`.
+  * EF Core then uses it to connect to SQL Server.
+
+---
+
+ 15. "I think I need one more for this options over here. So now our line is fine and this is the way to inject the DbContext inside the services of our application."
+
+* Meaning: Once this line is added, `BlogDbContext` is now registered as a service.
+
+---
+
+ 16. "So now that we have injected our DbContext, whenever we want to use the DbContext class, we can just use it from the services collection over here."
+
+* Meaning:
+
+  * Anywhere in your application (Controllers, Services, etc.), you can now request an instance of `BlogDbContext` in the constructor.
+  * ASP.NET Core will automatically provide it, so you don’t have to manually create a new instance.
+
+---
+
+ Summary of the Code in Program.cs:
+
+csharp
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<BlogDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("BlogDBConnectionString")
+    )
+);
+
+
+* Effect:
+
+  1. Registers MVC controllers with views.
+  2. Registers BlogDbContext with SQL Server and the connection string.
+  3. Enables dependency injection for BlogDbContext throughout the app.
+
+---
+
+$ Section 2.18 Run EF Core Migrations 
+
+---
+
+ 1. "In this lecture, we will create our database using entity framework."
+
+* Meaning: We will use Entity Framework Core (EF Core) to automatically generate a SQL database.
+* EF Core takes your domain models (BlogPost, Tag) and creates tables, columns, and relationships in the database.
+
+---
+
+ 2. "We have done all the preparation so that we have everything we want to give to entity framework so that it can do the heavy lifting and create the database and the tables, the columns and the relationships for us."
+
+* Preparation includes:
+
+  1. Created domain models (`BlogPost` and `Tag`)
+  2. Created DbContext class (`BlogDbContext`)
+  3. Added connection string in `appsettings.json`
+  4. Injected DbContext into the services container
+* EF Core will now use these to create the database structure automatically.
+
+---
+
+ 3. "We will run entity framework core migrations to create this setup."
+
+* Migrations = Scripts that tell EF Core how to apply changes from your code (domain models) to the database.
+* Purpose: Create tables, columns, relationships, constraints, etc.
+
+---
+
+ 4. "Back in our application, let's open NuGet Package Manager Console. So I will go to Tools > NuGet Package Manager and I will click on Package Manager Console to open the console window."
+
+* NuGet Package Manager Console (PMC) = A command line inside Visual Studio for running commands related to NuGet packages and EF Core migrations.
+
+---
+
+ 5. "In here we have to type two commands which will be used by entity framework to create our database."
+
+* EF Core uses two main commands for creating databases:
+
+  1. `Add-Migration` – generates a migration file.
+  2. `Update-Database` – applies the migration to the database.
+
+---
+
+ 6. "The first command that we want to run is to add a migration, and the command for that is `Add-Migration` followed by the name of the migration inside double quotes."
+
+* `Add-Migration "InitialMigration"` = Creates a C# class in the `Migrations` folder that describes the tables and relationships that need to be created.
+
+---
+
+ 7. "So let's use this command and I will type Add-Migration followed by a space and then inside double quotes. I will give the name to this migration because we are doing this for the first time. I can easily write this as InitialMigration. And then I will press Enter to start this command."
+
+* InitialMigration = just a name; it could be anything, but “InitialMigration” is common for the first migration.
+* When you run it, EF Core generates C# scripts for creating tables.
+
+---
+
+ 8. "The command ran successfully and it took a few seconds and it has created this new folder called Migrations over here. And you can see this file getting generated, which has the name InitialMigration."
+
+* EF Core automatically creates a Migrations folder in the project.
+* Inside it, a C# file (`InitialMigration.cs`) contains the instructions to create tables.
+
+---
+
+ 9. "When we open this migration file, it has this script which is written in C#."
+
+* Migration files are actual C# code, not SQL. EF Core translates them into SQL when applying them.
+
+---
+
+ 10. "What has been done behind the scene is Entity Framework Core has looked at the DbContext class. It has seen that these are the two tables that need to be created and it has created a script for these two tables."
+
+* EF Core reads your DbSet properties in `BlogDbContext`:
+
+  csharp
+  public DbSet<BlogPost> BlogPosts { get; set; }
+  public DbSet<Tag> Tags { get; set; }
+  
+* It generates the script to create tables and columns based on your domain models.
+
+---
+
+ 11. "So if I open the Up method over here, it has a script in C# to create a BlogPost table with all the columns necessary and the Tags table with all the columns necessary."
+
+* Up() method = defines what happens when applying the migration.
+* It creates tables (`BlogPost`, `Tag`) with the correct columns, types, and constraints.
+
+---
+
+ 12. "It even knows the primary keys for each table and also has a relationship table for the BlogPosts and the Tag table."
+
+* EF Core automatically sets:
+
+  * Primary keys (like `ID`)
+  * Foreign keys and many-to-many relationship table between BlogPosts and Tags
+
+---
+
+ 13. "So the migration has completed and it has created a migration. But there is nothing in the database yet and we can go and have a look at this."
+
+* Important: Running `Add-Migration` does not create the database yet.
+* It just generates the instructions (C# migration script).
+
+---
+
+ 14. "We can connect to the database or the SQL Server over here. And if I expand on the databases, I don't have the BlogDB with me. So the database hasn't been created yet, only the migration file has been created."
+
+* The database (`BlogDB`) will be created after running the next command, `Update-Database`.
+
+---
+
+ 15. "So now we are on to the second script that we have to run. So I will open Package Manager Console again from here."
+
+* Next step: Apply the migration to actually create the database and tables.
+
+---
+
+ 16. "And the second command that I have to run is `Update-Database` and what Update-Database will do is it will go to the Migrations folder and also connect to the database using the connection string and it will see what's missing and it will pass on all those details."
+
+* `Update-Database` = applies the migration(s) to the SQL Server database using your connection string.
+* It checks the database schema and adds tables, columns, constraints, or relationships that don’t exist yet.
+
+---
+
+ 17. "For example, we don't have a database yet, so it will create the database, it will create the tables, the columns and every other stuff."
+
+* EF Core will create:
+
+  1. BlogDB database
+  2. BlogPosts table
+  3. Tags table
+  4. Relationship table for many-to-many relationship
+
+---
+
+ 18. "So I can use the command `Update-Database` to update these migrations into our SQL Server database and press Enter to run this command."
+
+* Run this command in Package Manager Console. EF Core executes the migration script in SQL Server.
+
+---
+
+ 19. "The update has been completed as well. And you can see it has ran all the migration that it found in the Migrations folder and also compared it to the database, if there was any."
+
+* EF Core applied all pending migrations in order.
+* If the database already exists, it compares schemas and applies only necessary changes.
+
+---
+
+ 20. "So if I open the SQL Server again and refresh on the server, expand databases. Now we have the Blog with us, and if I expand on the Blog database, we should have three tables."
+
+* Database BlogDB is created.
+* Tables created:
+
+  1. BlogPosts
+  2. Tags
+  3. BlogPostTags (junction table for many-to-many relationship)
+
+---
+
+ 21. "So the first table we have is the BlogPost table, which has the columns that we created in the domain model that is ID, Heading, PageTitle and all other columns as we saw in the domain model."
+
+* Columns match your BlogPost domain model:
+
+  csharp
+  ID, Heading, PageTitle, Content, ShortDescription, FeaturedImageUrl, UrlHandle, PublishedDate, Author, Visible
+  
+
+---
+
+ 22. "We also have a table for Tags. We should have three columns, the ID, Name, and DisplayName. Again, these are the same properties as we had in the domain model."
+
+* Columns match your Tag domain model:
+
+  csharp
+  ID, Name, DisplayName
+  
+
+---
+
+ 23. "And finally, we have a relationship table for BlogPosts and Tags. So this one has the BlogPostID, which is the unique identifier over here, and the TagID, which is the unique identifier over here."
+
+* EF Core automatically creates the junction table for many-to-many relationships.
+* Columns: `BlogPostID`, `TagID`
+* This table links which BlogPosts have which Tags.
+
+---
+
+ 24. "And Entity Framework Core basically manages all this relationship behind the scene."
+
+* EF Core handles foreign keys, relationships, and junction table creation automatically, no
+
+
+manual SQL needed.
+
+---
+
+ 25. "So now we have the database and the tables created for us."
+
+*  Database setup is complete with all tables, relationships, and columns.
+
+---
+
+ 26. "In the next section, we will create a new web page and we will work on those web pages so that we can perform CRUD operations that is, Create, Read, Update and Delete on these tables."
+
+* Next step: Build UI and controllers to perform CRUD operations using EF Core.
+
+---
+
+  Summary: Database Creation Flow in EF Core
+
+1. Create Domain Models → `BlogPost`, `Tag`
+2. Create DbContext → `BlogDbContext`
+3. Add Connection String → `appsettings.json`
+4. Inject DbContext → `Program.cs` with DI
+5. Add Migration → `Add-Migration InitialMigration` → generates C# scripts
+6. Apply Migration → `Update-Database` → creates database, tables, and relationships in SQL Server
+
+---

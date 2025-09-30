@@ -1,0 +1,972 @@
+$ Section 1.1 Introduction
+
+# Sentence-by-sentence explanation — from scratch
+
+Nice — this is a long course intro. I’ll go through each sentence and explain what it means, why it matters, and any technical terms from the ground up. I’ll keep each explanation short and clear so you can follow from scratch.
+
+---
+
+1. "Hi and welcome to this course where you will learn and master your ASP.NET Core web development skills"
+   Plain English: The instructor greets you and says the course will teach you how to build web apps using ASP.NET Core.
+   Key idea: Learn and master means the course aims for both understanding and practical ability.
+   Why it matters: ASP.NET Core is a modern Microsoft framework for building web apps; mastering it makes you capable of building professional websites.
+
+2. "and build a highly scalable, data driven ASP.NET website with me using ASP.NET MVC Framework."
+   Plain English: You’ll build a website together with the instructor that can handle growth (scalable) and uses stored data (data-driven).
+   Terms: Scalable = can handle more users/traffic; data-driven = content comes from a database; ASP.NET MVC = a pattern (Model-View-Controller) used in ASP.NET for organizing code.
+   Why it matters: Real-world sites are data-driven and must scale; learning MVC helps structure large apps.
+
+3. "My name is Samir and I will be your instructor for this course."
+   Plain English: Introduction of the teacher.
+   Why it matters: Shows who will explain the material and help guide you.
+
+4. "Together we will build an ASP.NET Core website from scratch that is built on the popular MVC framework."
+   Plain English: You’ll create a new project (no starter code) using ASP.NET Core and the MVC architectural pattern.
+   Terms: From scratch = step-by-step creation; MVC = separates data (Model), UI (View), and logic (Controller).
+   Why it matters: Building from scratch teaches fundamentals and how pieces fit together.
+
+5. "If you have worked with the ASP.NET Framework in the past, then it is for sure that you have encountered ASP.NET MVC by now."
+   Plain English: If you used older ASP.NET, you likely already know the MVC approach.
+   Why it matters: Reassures experienced users that MVC concepts will feel familiar.
+
+6. "With the evolution in ASP.NET, the way we used to create websites have changed and a lot has changed inside ASP.NET MVC as well."
+   Plain English: ASP.NET has been updated over time (e.g., .NET Framework → .NET Core → .NET), and MVC itself has evolved.
+   Why it matters: Some practices/tools changed — the course will use modern approaches.
+
+7. "In this course, we will build a highly scalable blog application using ASP.NET Core MVC from scratch,"
+   Plain English: The project is a blog website built using modern ASP.NET Core and MVC.
+   Why it matters: A blog is a realistic app that uses many web concepts (CRUD, auth, content, media).
+
+8. "using the latest ASP.NET Core version."
+   Plain English: The course uses the newest version of ASP.NET Core available at the time of recording.
+   Why it matters: Newer versions include performance, security, and API improvements. (Implementation details may vary slightly between versions.)
+
+9. "We will learn the overview of ASP.NET Core and the Model view controller framework."
+   Plain English: You’ll get a high-level explanation of ASP.NET Core (the platform) and the MVC pattern (how to structure apps).
+   Why it matters: Conceptual understanding makes it easier to design and debug apps.
+
+10. "We will then go ahead and create a new ASP.NET Core MVC project and go through the files and folders that we have in the new project."
+    Plain English: The instructor will generate a project and explain the project structure (which files do what).
+    Why it matters: Knowing where code, configuration, and assets live is essential for development and deployment.
+
+11. "We will start with defining our domain models for our application."
+    Plain English: You’ll design the main data objects (classes) that represent the app’s data (e.g., BlogPost, User, Comment).
+    Terms: Domain model = classes/entities that model real concepts in the app.
+    Why it matters: Good models help keep code logical and simplify database design.
+
+12. "We will use the most popular object relational mapping tool that is entity framework Core and connect our ASP.NET MVC Web application to a SQL Server database using F core."
+    Plain English: The course uses Entity Framework Core (EF Core) — an ORM — to talk to a SQL Server database. (There’s a minor typo: “F core” means EF Core.)
+    Terms: ORM = a tool that maps classes to database tables so you can use code instead of SQL directly.
+    Why it matters: EF Core speeds development by letting you work with data as C# objects.
+
+13. "We will first start with the basic CRUD operations that is, create, read, update and delete operations on our database."
+    Plain English: You’ll implement the four fundamental operations for working with data: add, read, modify, delete.
+    Why it matters: CRUD is the backbone of most applications — everything else builds on it.
+
+14. "We will also learn how we can seed initial data to the database using entity framework."
+    Plain English: You’ll learn to populate the database with sample or default records automatically (seeding).
+    Why it matters: Seeding helps testing and gives the app initial content without manual entry.
+
+15. "We will understand routing and see the different routing techniques for MVC web pages."
+    Plain English: You’ll learn how URLs map to code (which controller/action handles which URL) and different ways to configure routes.
+    Terms: Routing = mapping incoming web requests (URLs) to code.
+    Why it matters: Proper routing is essential for friendly URLs, SEO, and correct page behavior.
+
+16. "We will then learn repository pattern to read and persist data to the database."
+    Plain English: You’ll learn the repository pattern, a way to abstract data access into classes so the rest of the code doesn’t depend on EF Core directly.
+    Why it matters: Repositories improve testability, separation of concerns, and make future changes easier (e.g., changing DB tech).
+
+17. "We will learn how we get data on page loads and also submit forms."
+    Plain English: You’ll see how to fetch data to display when a page is requested and how to handle form submissions (user inputs).
+    Why it matters: Pages often show data and let users submit forms; handling both securely and correctly is fundamental.
+
+18. "We will also show success and failure or error notifications on our web pages."
+    Plain English: The course will implement ways to inform users when actions succeed or fail (e.g., “Post saved” or “Validation error”).
+    How: Usually via UI alerts, Bootstrap toasts, or inline messages (server-side TempData or client-side JS).
+
+19. "We will be using the most popular CSS framework that is bootstrap to speed up the web development process,"
+    Plain English: The UI will use Bootstrap, a CSS/JS library that provides ready-made components and responsive grids.
+    Why it matters: Bootstrap speeds styling and ensures designs work on different screen sizes without building everything from scratch.
+
+20. "along with maintaining a consistent, clean and responsive look for our website."
+    Plain English: Using Bootstrap helps keep the site visually consistent and responsive (works on mobile and desktop).
+    Why it matters: Good UX and responsive layouts are expected in modern websites.
+
+21. "We will also create a web API controller in our MVC application and we will invoke these API using JavaScript."
+    Plain English: You’ll build an API endpoint inside the same app and call it from the browser using JavaScript (AJAX/fetch).
+    Terms: Web API = controller that returns JSON (often used by client-side scripts); invoke using JavaScript = make asynchronous calls from the front end.
+    Why it matters: Separating API endpoints enables dynamic UI updates without full page reloads.
+
+22. "We will learn and implement asynchronous programming throughout the code."
+    Plain English: The code will use `async`/`await` patterns for I/O operations (like DB calls) so the app stays responsive.
+    Why it matters: Async reduces thread blocking on web servers, improving throughput and scalability.
+
+23. "We will implement a third party WYSIWYG that is a rich text editor to create the content for our blog application."
+    Plain English: The course will integrate a WYSIWYG editor (What You See Is What You Get) such as TinyMCE or CKEditor so admins can write formatted blog content.
+    Why it matters: A rich text editor lets non-technical users add bold text, links, images, etc., without writing HTML.
+
+24. "We will also add authentication and authorization into our project using Microsoft Identity along with the functionality for registration and login."
+    Plain English: The app will use Microsoft Identity (built-in auth framework) to let users register, log in, and manage access.
+    Terms: Authentication = verify who someone is; Authorization = control what they can do.
+    Why it matters: Most apps need user accounts and secure access control.
+
+25. "We will implement role based authorization where we will have multiple roles like users, admins and super admins."
+    Plain English: The app will define roles (e.g., regular users, admins, super admins) and restrict actions based on those roles.
+    Why it matters: Role-based control lets you give extra powers to admins while keeping normal users limited.
+
+26. "We will also implement the functionality to manage these users."
+    Plain English: Admins will get tools to view, edit, delete or change roles of users.
+    Why it matters: User management is necessary for moderation and account maintenance.
+
+27. "We will be going through the topics discussed in a very practical approach so that every concept just comes naturally along with the practical website that we will build."
+    Plain English: The course is hands-on — you learn by doing while building the actual project.
+    Why it matters: Practical learning helps concepts stick better than theory alone.
+
+28. "Let me take you through the application that we will build in this course."
+    Plain English: The instructor will describe the final app features and user flows.
+    Why it matters: Knowing the end goal helps you follow lessons in context.
+
+29. "We will be creating a fully functional dev blog website."
+    Plain English: The final product is a working developer blog site with all needed features.
+    Why it matters: “Fully functional” implies real features like CRUD, auth, media, comments, etc.
+
+30. "This will be a website in which we create our dev related blogs."
+    Plain English: The content will be technical articles about development (dev-related).
+    Why it matters: Focuses the content model (code snippets, tutorials, tags).
+
+31. "People on the internet will come to our website to view these blogs."
+    Plain English: The site will be public so visitors can read posts.
+    Why it matters: Public-facing sites require attention to UX, performance, and SEO.
+
+32. "On the home page."
+    Plain English: (Fragment) Refers to what users will see on the site’s main page.
+    Why it matters: Home page is usually the first impression and important for navigation.
+
+33. "We will have all the blogs available to us as a list."
+    Plain English: The home page will show blog posts in a list (or cards) — title, excerpt, date, etc.
+    Why it matters: Listing posts helps visitors browse content quickly.
+
+34. "We also have categories also known as tags for these blogs that we have on our website."
+    Plain English: Posts will be grouped by categories/tags to organize content and help navigation.
+    Terms: Tag = a keyword; Category = a broader grouping.
+    Why it matters: Tags and categories make it easy to find related posts.
+
+35. "These tags are used to navigate to similar content."
+    Plain English: Clicking a tag shows posts that share that tag.
+    Why it matters: Improves user retention and content discovery.
+
+36. "For example, ASP.NET Tag gives us all the blogs which have the tag ASP.NET in them."
+    Plain English: Example showing how a tag filters posts by topic.
+    Why it matters: Demonstrates practical tag usage.
+
+37. "The user can view the details of any blog by clicking on the Read more button."
+    Plain English: Each list item has a “Read more” link to see the full post.
+    Why it matters: Typical UI pattern for showing excerpts then full content on a details page.
+
+38. "This will take them to the details of the blog which is routed using the URL handle."
+    Plain English: The details page is accessed via a readable URL (a handle or slug), e.g., `/blog/how-to-ef-core`.
+    Terms: URL handle/slug = human-friendly URL identifier derived from the title.
+    Why it matters: Friendly URLs help users and search engines.
+
+39. "This makes the blog SEO friendly for search engines like Google and Yahoo as well."
+    Plain English: Using clear URLs and structured pages improves visibility in search engines (SEO).
+    Why it matters: Better SEO = more organic traffic to the blog.
+
+40. "The blog details page also has the functionality where it shows how many users have liked this blog."
+    Plain English: The post page displays a count of likes (social interaction metric).
+    Why it matters: Social proof and engagement features encourage interaction.
+
+41. "When we scroll down, we get the functionality to view the comments on these blogs."
+    Plain English: Below the post, there’s a comments section where readers can read comments.
+    Why it matters: Comments enable discussion and community around posts.
+
+42. "As you might have noticed, you have the likes and comments showing up on the screen, but they will only work if you are logged in to the application."
+    Plain English: Like/comment features require the user to be authenticated (logged in) to prevent anonymous actions or spam.
+    Why it matters: Authentication links actions to user accounts and improves moderation.
+
+43. "For normal users visiting our blog, we have the functionality where the user can register themselves using the register page."
+    Plain English: Visitors can create an account through a registration form.
+    Why it matters: Registration is needed so users can authenticate and use interactive features.
+
+44. "On a successful registration, they can log in to the application using the login page."
+    Plain English: After creating an account, users can sign in with credentials.
+    Why it matters: Login allows the system to recognize the user and provide personalized features.
+
+45. "Once the user has logged in, they can browse the website as usual, but now they have the functionality to like and comment on blogs."
+    Plain English: After login, the interactive features become available (liking, commenting).
+    Why it matters: Differentiates read-only visitors from authenticated users who can interact.
+
+46. "Apart from the normal user, we have two other user roles implemented."
+    Plain English: The system defines extra roles besides normal users.
+    Why it matters: Roles allow different permission levels (e.g., admin vs. reader).
+
+47. "We have the admin users and the super admin users."
+    Plain English: Two higher-privileged roles exist: admin (manage content/users) and super admin (more power).
+    Why it matters: Super admin often has full control (site settings, role assignment).
+
+48. "Both admin and super admin users can log in to the application and upon a successful login they will see another navigation that is just available for admins and super admins using the admin functionality."
+    Plain English: After admins log in, a special admin menu appears giving access to admin pages (dashboard, manage posts/users).
+    Why it matters: Admin UI is separated from public UI for security and usability.
+
+49. "The admins of this blog can create new blog posts."
+    Plain English: Admin users have permission to add posts to the site.
+    Why it matters: Content creators need editor interfaces.
+
+50. "Here they have the access to this rich text editor which they can use to create the content for this blog."
+    Plain English: When creating posts, admins use the WYSIWYG editor to format text and add media.
+    Why it matters: Makes content creation easy for non-developers.
+
+51. "We also have implemented the functionality to upload images for these blogs to a third party cloud based image hosting provider."
+    Plain English: Images uploaded to posts are stored on an external cloud service (e.g., Cloudinary, S3) instead of the local server.
+    Why it matters: Cloud storage improves performance, offloads bandwidth, and often gives automatic resizing/CDN benefits.
+
+52. "The admin will use this page to create new blogs."
+    Plain English: The admin content creation UI is where posts are authored and saved.
+    Why it matters: Central place for post management.
+
+53. "They will see all the blogs that they want to manage using the blog list page."
+    Plain English: Admins have a list view showing all posts with actions (edit, delete, view).
+    Why it matters: Makes editing and moderation efficient.
+
+54. "From here they can view the details for any blog and also have the functionality to update any of them."
+    Plain English: Admins can open a post’s page and edit its content (update).
+    Why it matters: Content updates are required over time (fix typos, add info).
+
+55. "They can also delete blogs using the delete button."
+    Plain English: Admins can remove posts permanently (or soft-delete depending on implementation).
+    Why it matters: Moderation/removal of outdated or inappropriate content.
+
+56. "Another functionality that admin have is to manage users."
+    Plain English: Admins can administer user accounts (view, change roles, delete).
+    Why it matters: Essential for site moderation and user lifecycle management.
+
+57. "We have the users page available only to admins and super admins."
+    Plain English: The user management page is restricted to privileged roles.
+    Why it matters: Limits sensitive operations to trusted users.
+
+58. "Using this page they can view and delete users."
+    Plain English: Admins can inspect user details and remove accounts as needed.
+    Why it matters: Helps deal with spam or abusive accounts.
+
+59. "We also have implemented the ADD user functionality, but using a pop up model instead."
+    Plain English: Admins can add new users via a popup modal window (a small overlay form), rather than a separate page.
+    Terms: Modal = a dialog overlay that captures user input.
+    Why it matters: Modals speed up common admin tasks without full page navigation.
+
+60. "This will be an amazing tutorial by the end of which you will master creating scalable ASP.NET Core MVC websites."
+    Plain English: The instructor promises that completing the course will make you proficient at building scalable MVC websites.
+    Why it matters: Sets learner expectations and motivation.
+
+61. "I am excited to do this and I hope you will have fun doing this with me."
+    Plain English: Friendly closing — the instructor expresses enthusiasm and hopes the course will be enjoyable.
+    Why it matters: Encourages learner engagement and a positive learning atmosphere.
+
+---
+
+$ Section 1.2 Aplication Demo
+
+# Sentence-by-sentence explanation — from scratch
+
+Nice — I’ll explain each sentence from that section. For every sentence I’ll give a plain-English meaning, the key terms (if any), why it matters, and a brief note on how it’s commonly implemented in an ASP.NET Core MVC blog. Ready — here we go.
+
+1. "Let me take you through the application that we will build in this course."
+   Plain English: The instructor will describe the app you'll build.
+   Why it matters: Gives you context and a roadmap so you know what to expect.
+   Implementation note: Usually followed by a feature list and user flows.
+
+2. "We will be creating a fully functional dev blog website."
+   Plain English: The final product will be a working developer-focused blog (not just a demo).
+   Why it matters: “Fully functional” implies real features: posts, comments, users, admin, etc.
+   Implementation note: Expect backend + frontend + database + auth.
+
+3. "This will be a website in which we create our dev related blogs."
+   Plain English: The content will be developer-oriented articles (tutorials, guides, code).
+   Why it matters: Defines the content type and some UI needs (code formatting, syntax highlighting).
+   Implementation note: You’ll likely add support for code blocks, syntax highlighting, and tag metadata.
+
+4. "People on the internet will come to our website to view these blogs."
+   Plain English: The site is public — visitors can read posts.
+   Why it matters: Public access requires attention to performance, SEO, and security.
+   Implementation note: Implement public read-only controllers/views and caching for performance.
+
+5. "On the home page."
+   Plain English: (Intro fragment) Refers to what users see first — the site’s main page.
+   Why it matters: The home page often lists posts and acts as a navigation hub.
+   Implementation note: HomeController → Index action that queries posts and passes to a view.
+
+6. "We will have all the blogs available to us as a list."
+   Plain English: The home page shows blog posts in a list (titles, snippets, dates).
+   Why it matters: Allows quick browsing and discovery.
+   Implementation note: Use paginated queries (EF Core `Skip`/`Take`) and display cards or list items in a Razor view.
+
+7. "We also have categories also known as tags for these blogs that we have on our website."
+   Plain English: Posts are organized with categories/tags (keywords).
+   Why it matters: Helps users find related content and improves navigation/SEO.
+   Implementation note: Data model: `Tag` entity and many-to-many relation between `BlogPost` and `Tag`.
+
+8. "These tags are used to navigate to similar content."
+   Plain English: Clicking a tag shows other posts with the same tag.
+   Why it matters: Keeps visitors on the site longer and surfaces related posts.
+   Implementation note: TagController or route like `/tag/{slug}` that filters posts by tag.
+
+9. "For example, ASP.NET Tag gives us all the blogs which have the tag ASP.NET in them."
+   Plain English: Example of how a tag filter works (show posts about ASP.NET).
+   Why it matters: Makes concept concrete for developer-focused content.
+   Implementation note: Query EF Core: `context.Posts.Where(p => p.Tags.Any(t => t.Slug == "asp-net"))`.
+
+10. "The user can view the details of any blog by clicking on the Read more button."
+    Plain English: Each post preview has a “Read more” link to the full article.
+    Why it matters: Typical UX pattern to show excerpts then the full article.
+    Implementation note: Link to `Posts/Details/{id}` or slug-based route.
+
+11. "This will take them to the details of the blog which is routed using the URL handle."
+    Plain English: The details page is accessed using a URL-friendly identifier (slug/handle).
+    Why it matters: Slugs are human-friendly and better for SEO than raw IDs.
+    Implementation note: Route like `/{year}/{month}/{slug}` or `/blog/{slug}`; map to `PostsController.Details(slug)`.
+
+12. "This makes the blog SEO friendly for search engines like Google and Yahoo as well."
+    Plain English: Clean URLs and structured content help search engines index your pages.
+    Why it matters: Better SEO → more organic traffic.
+    Implementation note: Include meta tags, structured data (Open Graph), and friendly slugs.
+
+13. "The blog details page also has the functionality where it shows how many users have liked this blog."
+    Plain English: A like counter (number of users who liked the post) is displayed on the post page.
+    Why it matters: Engagement metric and social proof for authors/readers.
+    Implementation note: Store likes in a `PostLikes` table (user + post) and show `Count()` in the view; update via AJAX.
+
+14. "When we scroll down, we get the functionality to view the comments on these blogs."
+    Plain English: The post page includes a comments section below the article.
+    Why it matters: Comments enable discussion and community interaction.
+    Implementation note: Comments table linked to posts (and users), displayed in the details view; consider moderation tools.
+
+15. "As you might have noticed, you have the likes and comments showing up on the screen, but they will only work if you are logged in to the application."
+    Plain English: Like and comment actions require user authentication (login).
+    Why it matters: Ties actions to user accounts, reduces spam, enables accountability.
+    Implementation note: Protect like/comment endpoints with `[Authorize]` and show UI prompts to login otherwise.
+
+16. "For normal users visiting our blog, we have the functionality where the user can register themselves using the register page."
+    Plain English: Visitors can sign up (create an account) through a registration form.
+    Why it matters: Registration is needed for interaction features and personalization.
+    Implementation note: Use ASP.NET Core Identity’s register flow (Register page, password rules, email confirmation optional).
+
+17. "On a successful registration, they can log in to the application using the login page."
+    Plain English: After creating an account, users sign in with credentials.
+    Why it matters: Login grants authenticated access and enables user-specific actions.
+    Implementation note: Identity’s login page; use secure cookie-based auth by default.
+
+18. "Once the user has logged in, they can browse the website as usual, but now they have the functionality to like and comment on blogs."
+    Plain English: Authenticated users keep reading but also can interact (likes/comments).
+    Why it matters: Differentiates read-only visitors from authenticated contributors.
+    Implementation note: Show/enable like/comment buttons conditionally in the Razor view when `User.Identity.IsAuthenticated == true`.
+
+19. "Apart from the normal user, we have two other user roles implemented."
+    Plain English: The app defines roles beyond basic users.
+    Why it matters: Roles control access to admin features and permissions.
+    Implementation note: Use Identity roles: `User`, `Admin`, `SuperAdmin`.
+
+20. "We have the admin users and the super admin users."
+    Plain English: Two privileged roles exist — admins and super admins.
+    Why it matters: Super admins often have full control; admins have content-management rights.
+    Implementation note: Seed these roles and create a default super admin on first run (seed data).
+
+21. "Both admin and super admin users can log in to the application and upon a successful login they will see another navigation that is just available for admins and super admins using the admin functionality."
+    Plain English: After privileged users log in, an admin menu appears providing administrative pages.
+    Why it matters: Separates public and admin UI for usability and security.
+    Implementation note: In `_Layout.cshtml` render an admin nav partial when `User.IsInRole("Admin") || User.IsInRole("SuperAdmin")`.
+
+22. "The admins of this blog can create new blog posts."
+    Plain English: Admins have permission to author and publish posts.
+    Why it matters: Admins manage site content.
+    Implementation note: Admin area controllers with `[Authorize(Roles="Admin,SuperAdmin")]` and create/edit views.
+
+23. "Here they have the access to this rich text editor which they can use to create the content for this blog."
+    Plain English: Admins will use a WYSIWYG editor (bold, lists, images) to compose posts.
+    Why it matters: Non-technical users can author formatted articles easily.
+    Implementation note: Integrate TinyMCE, CKEditor, or Quill — send HTML to the server and store it safely (sanitize!).
+
+24. "We also have implemented the functionality to upload images for these blogs to a third party cloud based image hosting provider."
+    Plain English: Images are uploaded to an external cloud service (not stored only on the app server).
+    Why it matters: Cloud hosting improves scalability, reliability and often provides CDN benefits.
+    Implementation note: Use Cloudinary or AWS S3 SDK; store returned image URL in the post record.
+
+25. "The admin will use this page to create new blogs."
+    Plain English: The admin content creation UI is used for authoring posts.
+    Why it matters: Centralized UI for adding new content.
+    Implementation note: Create `Admin/Posts/Create` view with form fields, WYSIWYG, tag selection, image upload.
+
+26. "They will see all the blogs that they want to manage using the blog list page."
+    Plain English: Admins get a management list of posts (with actions like edit/delete).
+    Why it matters: Makes it easy to find and operate on posts.
+    Implementation note: Admin list with server-side pagination, filtering (by tag, author, status), and action buttons.
+
+27. "From here they can view the details for any blog and also have the functionality to update any of them."
+    Plain English: Admins can open a post to edit its content.
+    Why it matters: Content updates and corrections are common.
+    Implementation note: Edit form pre-filled with post data; save updates to the DB.
+
+28. "They can also delete blogs using the delete button."
+    Plain English: Admins can remove posts (permanently or soft-delete).
+    Why it matters: Remove outdated or inappropriate content.
+    Implementation note: Use confirmation dialogs and consider soft-delete (mark as inactive) to prevent accidental data loss.
+
+29. "Another functionality that admin have is to manage users."
+    Plain English: Admins can administer user accounts (view, edit, remove).
+    Why it matters: Needed for moderation (ban spammers, fix accounts).
+    Implementation note: Admin user management screens that list users, roles, and actions.
+
+30. "We have the users page available only to admins and super admins."
+    Plain English: The user-management page is restricted to privileged roles.
+    Why it matters: Protects sensitive operations from normal users.
+    Implementation note: Protect route with `[Authorize(Roles="Admin,SuperAdmin")]`.
+
+31. "Using this page they can view and delete users."
+    Plain English: Admins can inspect user info and remove accounts if needed.
+    Why it matters: Essential for moderation and cleanup.
+    Implementation note: Show user details, last login, roles; implement delete with confirmation and audit logs.
+
+32. "We also have implemented the ADD user functionality, but using a pop up model instead."
+    Plain English: Admins can add new users via a popup modal dialog (not a separate page).
+    Why it matters: Quick admin workflow — add users without leaving the list.
+    Implementation note: Use a Bootstrap modal that posts via AJAX to create the user and refresh the list.
+
+33. "This will be an amazing tutorial by the end of which you will master creating scalable ASP.NET Core MVC websites."
+    Plain English: The instructor promises you’ll gain strong practical skills in building scalable MVC sites.
+    Why it matters: Sets expectations and motivates learners.
+    Implementation note: Achieved by covering topics like async programming, caching, role-based auth, and cloud storage.
+
+34. "I am excited to do this and I hope you will have fun doing this with me."
+    Plain English: Friendly closing — the instructor expresses enthusiasm and hopes the course is enjoyable.
+    Why it matters: Positive tone helps student engagement and motivation.
+
+35. "Play" / "1. Introduction" / "7min"
+    Plain English: UI labels for a course video — “Play” button, "Lecture 1: Introduction", and its duration (7 minutes).
+    Why it matters: Tells you where to start (first video is 7 minutes long).
+    Implementation note: Course platform will show a play control; the intro likely covers the overview you just read.
+
+---
+
+$ Section 1.3 How to Ask Questions and submit reviews
+
+---
+
+ 1.
+
+Sentence: *"As you are going through the course, you may have many questions in your head."*
+ Meaning: While you are watching or studying this course, you might feel confused about some topics or want extra explanation. These thoughts are called questions in your head.
+
+---
+
+ 2.
+
+Sentence: *"An easy way to get your questions answered is through the question and answer area over here."*
+ Meaning: The course has a special section called Q&A (Question and Answer area).
+There you can type your doubts, and the instructor or other students can reply.
+This is a convenient way to solve problems.
+
+---
+
+ 3.
+
+Sentence: *"It could be possible that other students may have the same question and could benefit from the answer."*
+ Meaning: You are not the only one learning. Other students also face similar doubts.
+So, when you ask a question, the answer helps not just you, but everyone else too.
+
+---
+
+ 4.
+
+Sentence: *"And in this area, I would respond to all the questions as soon as possible."*
+ Meaning: The instructor (Samir) is promising to reply quickly in the Q&A section whenever you ask something.
+This means you won’t have to wait too long for clarification.
+
+---
+
+ 5.
+
+Sentence: *"Also, during the course you would be asked to give feedback about the course over here."*
+ Meaning: While studying, the platform will request you to give feedback (your opinion) about the course.
+Feedback helps to improve quality.
+
+---
+
+ 6.
+
+Sentence: *"I would really appreciate if you provide an honest review about the course, as it only takes a minute and it is really helpful so that the course reaches more students."*
+ Meaning:
+
+* The instructor wants you to give a true review (not fake praise, but real opinion).
+* Writing a review doesn’t take much time (around 1 minute).
+* Reviews are important because good feedback helps the course become more visible to new students on platforms like Udemy, Coursera, etc.
+
+---
+
+ 7.
+
+Sentence: *"Also, any additional comments with the review are always encouraged."*
+ Meaning: You can also add extra details in your review (like what you liked most, or what needs improvement).
+This kind of extra info is welcomed.
+
+---
+
+ 8.
+
+Sentence: *"This gives me the correct feedback and I come to know how much my students love my course and or if there is a chance of any improvement in the course as well."*
+ Meaning:
+
+* Reviews and comments help the instructor understand whether students are enjoying the course.
+* They also highlight if something is missing or needs improvement.
+* So, the instructor uses your feedback to make the course better.
+
+---
+
+$ Section 1.4 Setting up Development Environment 
+
+Skipped this section because not too much content 
+
+---
+
+$ Section 1.5 Install .net SDK and .net Runtime
+
+# Sentence-by-sentence explanation — from scratch
+
+> Short note: the official .NET downloads page and the .NET support policy are here for reference. ([Microsoft][1])
+
+---
+
+1. "In this lecture we will download and install dotnet version eight and we will go to the dotnet website for this one."
+
+   * Plain English: the lesson will show how to get and install .NET 8 from the official .NET website.
+   * Why it matters: you need the correct SDK/runtime on your machine to build and run ASP.NET Core apps.
+   * How-to note: the official download hub is the starting point. ([Microsoft][1])
+
+2. "The link is https dot net dot microsoft.com forward slash Ian hyphen us forward slash download."
+
+   * Plain English: the instructor is speaking the download page URL. There’s a small transcription typo — it should be `en-us` not `Ian-us`.
+   * Correct URL you can use: `https://dotnet.microsoft.com/en-us/download` (and for the .NET 8 page specifically: `https://dotnet.microsoft.com/en-us/download/dotnet/8.0`). ([Microsoft][2])
+
+3. "I'll give the link in the resources to this lecture, so don't worry."
+
+   * Plain English: the instructor will paste that URL into the course resources so you don’t have to type it yourself.
+   * Why it matters: using the course resource link avoids typos and gets you to the exact page the instructor uses.
+
+4. "You can click on the link and directly land on this page."
+
+   * Plain English: clicking the provided link opens the .NET download page in your browser — you’ll be on the exact page for downloads.
+   * Why it matters: no manual searching necessary; you’ll see the download options the instructor refers to.
+
+5. "On this page over here we have dotnet eight which is the latest and the long tum support version."
+
+   * Plain English: the page shows .NET 8, which (at the time of the lecture) is the current Long-Term-Support (LTS) release.
+   * What LTS means: LTS releases get an extended support period (security/patch updates for a longer time), so they’re recommended for production projects. ([Microsoft][3])
+
+6. "So we will go ahead and download and install this version."
+
+   * Plain English: the instructor chooses .NET 8 (the LTS) and will walk through downloading and installing it.
+   * Why it matters: selecting LTS gives you longer official support and stability for production apps.
+
+7. "We will right click on this link over here which is the all dotnet eight downloads."
+
+   * Plain English: there’s an “All .NET 8 downloads” link (or button) that lists SDKs, runtimes, and installers for all OS/architectures — open that.
+   * Why it matters: the “All downloads” page shows specific installers (Windows x64, ARM64, macOS, Linux packages, etc.). ([Microsoft][2])
+
+8. "So right click Open Link in a new tab I'll come to this page."
+
+   * Plain English: the instructor demonstrates opening the downloads page in a new browser tab so you can keep the course page open.
+   * How-to note: right-click → “Open link in new tab” or just left-click to navigate.
+
+9. "And on this page you can see for dotnet eight."
+
+   * Plain English: the page displays everything available for .NET 8 (builds and files).
+   * Why it matters: you’ll choose the correct installer from what’s shown.
+
+10. "We have all the packages available for Linux, Mac OS, windows and other civil."
+
+    * Plain English (fixing transcription): The site shows packages for Linux, macOS, Windows, and other OS/architectures.
+    * Why it matters: .NET is cross-platform — pick the installer that matches your OS and CPU architecture (x64, Arm64, x86). ([Microsoft][2])
+
+11. "And we have the SDK on this side and we have the runtime on this side."
+
+    * Plain English: the downloads page is usually split so you can choose the SDK (for developing/building apps) or the Runtime (for just running apps).
+    * Key difference: SDK = compilers, `dotnet` CLI, templates and the runtime; Runtime = only the bits required to run an app. Installing the SDK also installs the corresponding runtime. ([Microsoft Learn][4])
+
+12. "So I have a windows machine and it's a 64 bit."
+
+    * Plain English: the instructor’s PC runs Windows and uses a 64-bit CPU/OS (commonly labeled “x64”).
+    * How to check (quick): on Windows open *Settings → System → About* or run `systeminfo` in a Command Prompt and look for “System Type”.
+
+13. "So I will right click on this and open link in a new tab."
+
+    * Plain English: the instructor opens the Windows x64 SDK (or the appropriate installer link) in a new tab to download it.
+    * How-to note: choose the SDK download labeled Windows x64 if your PC is 64-bit.
+
+14. "Or just click on it."
+
+    * Plain English: alternatively, a normal click will start the download — either method works.
+
+15. "And this will download uh the SDK for you."
+
+    * Plain English: clicking the SDK link starts the SDK installer download (.exe or .msi on Windows).
+    * How-to note: the file usually lands in your browser’s Downloads folder.
+
+16. "And that is version eight as you can see over here."
+
+    * Plain English: the downloaded file corresponds to .NET 8 (file name or page will show `8.0.x`).
+    * Why it matters: confirm you downloaded the intended major version (8.x) not an older one.
+
+17. "Similarly for the runtime I will come over here I have a windows machine which is 64 bit."
+
+    * Plain English: same process for the runtime: select the Windows x64 runtime installer if you need the runtime separately.
+    * When you need the runtime: if you only need to run apps (not develop), install the runtime; if you develop, SDK is the right choice. ([Microsoft Learn][4])
+
+18. "So I can directly click on this link or just open link in a new tab."
+
+    * Plain English: as with the SDK, you can click to download the runtime installer.
+
+19. "And this will download the runtime for me."
+
+    * Plain English: the runtime installer `.exe`/`.msi` downloads to your machine.
+
+20. "So once the downloads are complete over here, you can just easily go and install both these."
+
+    * Plain English: after downloads finish, run the installers and follow the on-screen prompts (admin privileges may be required).
+    * How-to notes (Windows): double-click the `.exe` or `.msi`, accept the prompts, allow the installer to add `dotnet` to PATH. Official installers handle PATH for you — this is the recommended approach on Windows. ([Microsoft][2])
+
+21. "And you should have dotnet SDK and runtime which is dotnet version eight."
+
+    * Plain English: after installation you’ll have .NET 8 SDK and runtime available locally.
+    * How to verify (commands): open Command Prompt / PowerShell and run:
+
+      * `dotnet --list-sdks` → shows installed SDK versions.
+      * `dotnet --list-runtimes` → shows installed runtimes.
+      * `dotnet --version` → shows the default SDK version.
+        These verification commands are in Microsoft’s docs and will confirm the installed versions. ([Microsoft Learn][4])
+
+---
+
+## Compact “What to do now” checklist (copy-paste)
+
+1. Open the official page: `https://dotnet.microsoft.com/en-us/download/dotnet/8.0`. ([Microsoft][2])
+2. Under .NET 8 choose SDK (for development). Select your OS and architecture (e.g., Windows x64). ([Microsoft][2])
+3. Download the SDK installer (and runtime only if you need it separately). ([Microsoft][2])
+4. Run the installers (double-click, accept prompts; admin rights may be required). ([Microsoft][2])
+5. Verify with `dotnet --list-sdks` and `dotnet --list-runtimes` or `dotnet --version`. ([Microsoft Learn][4])
+
+---
+
+$ Section 1.6 Download and Install Visual Studio 2022
+
+# Sentence-by-sentence explanation — from scratch
+
+---
+
+1. "In this video we will download and install Visual Studio 2022 so that we can code our .NET solution."
+   Plain English: The lesson shows how to get and install Visual Studio 2022, which is the integrated development environment (IDE) you’ll use to write the project’s .NET code.
+   Why it matters: Visual Studio gives tools (editor, debugger, project templates) that make building ASP.NET/.NET apps much easier than using a plain text editor.
+   Quick note: You can also use other editors (VS Code) but Visual Studio is the full-featured IDE commonly used for large .NET solutions.
+
+2. "To download Visual Studio, navigate to VisualStudio.microsoft.com in your browser."
+   Plain English: Open your web browser and go to the official Visual Studio download site.
+   Why it matters: Always download the installer from the official site to get the correct, safe, up-to-date version.
+   How-to: Type `visualstudio.microsoft.com` (or follow the link in the course notes).
+
+3. "I will have this link available to you in the notes attached to this lecture as well."
+   Plain English: The instructor will paste the download link in the course’s resources so you can click it directly.
+   Why it matters: Saves you from typing the URL and prevents typos.
+
+4. "Scroll down on this page and choose the version of Visual Studio that you want to install for Windows and Mac users."
+   Plain English: On the downloads page you’ll see multiple editions (Community, Professional, Enterprise) and versions for Windows or Mac — pick the one for your OS.
+   Why it matters: Visual Studio for Windows and Visual Studio for Mac are different installers (UI and some features differ). Choose the correct OS build.
+
+5. "You can download their respective versions and if you are a Linux user, you can download Visual Studio Code, which is a lightweight IDE, and you can install some packages for your C-sharp and ASP.NET development."
+   Plain English: Windows/Mac users get full Visual Studio; Linux users should use Visual Studio Code (VS Code) plus extensions for C#/.NET.
+   Why it matters: Full Visual Studio isn’t available on Linux, but VS Code + C#/.NET extensions is the practical alternative on Linux.
+   How-to (Linux): Install .NET SDK, then VS Code and add the C# extension (OmniSharp) and the C# Dev Kit / debugger extensions.
+
+6. "I am on a Windows platform, so I will choose the community version which is free to use."
+   Plain English: The instructor uses Visual Studio Community — the free edition for individual learners and small teams.
+   Why it matters: Community gives almost all features students need without cost. (Larger organizations may need Professional/Enterprise.)
+
+7. "This will download the Visual Studio installer, click on Continue and it will download the necessary files it needs to install Visual Studio."
+   Plain English: The site gives a small installer bootstrapper. Run it and it will fetch the workload files you choose.
+   Why it matters: The bootstrapper lets you pick only the components you need (saves disk space and time), but it will still download several hundred MBs–GBs depending on choices.
+   Tip: Keep a good internet connection; the installer may run for a while.
+
+8. "After that, you will get a setup that is similar to this one where you can select and install various components inside Visual Studio."
+   Plain English: The Visual Studio installer shows a UI where you check workloads (groups of related features) and individual components.
+   Why it matters: Workloads let you install only what you need (web development, desktop, mobile, data tools, etc.). Choose carefully to avoid extra disk usage.
+
+9. "From this screen, I will first select the ASP.NET and Web development package."
+   Plain English: The instructor picks the ASP.NET and web development workload — this installs templates, tools, and dependencies for building web apps (ASP.NET Core).
+   Why it matters: This workload adds Razor/Blazor templates, IIS Express support, web debugging tools, and related project templates you’ll use in the course.
+
+10. "I will then go on and select the Dotnet desktop development package as well."
+    Plain English: They also pick .NET desktop development (for building Windows desktop apps with WinForms/WPF).
+    Why it matters: Not strictly required for a web-only course, but many developers include it to get desktop templates, designers, and a fuller .NET toolset. If you don’t need desktop features you can skip it to save space.
+
+11. "I will also select the data storage and processing package to connect, develop and test the solutions with SQL Server and other SQL or data storage packages."
+    Plain English: The instructor chooses the Data storage and processing workload — this adds SQL Server tools, database project support, and tools to work with databases.
+    Why it matters: Useful for working with SQL Server databases, running database projects, and using integrated database tooling from inside Visual Studio (e.g., Server Explorer, SQL Server Object Explorer).
+
+12. "So with these three packages selected, I will click on install."
+    Plain English: After choosing the workloads, click Install — the installer will download and install the selected components.
+    Why it matters: Installation will take time and disk space; be sure you have enough free drive space and patience.
+
+13. "And this will install Visual Studio 2022 into your system."
+    Plain English: After install completes, Visual Studio 2022 will be available on your computer and you can start creating .NET projects.
+    How to verify: Launch Visual Studio, create a new project (e.g., “ASP.NET Core Web App”), or open Help → About Microsoft Visual Studio to confirm the version.
+
+---
+
+$ Section 1.7 Download and Install SQL Server (Local Instance) & SQL Server Management Studio
+
+# Sentence-by-sentence explanation — from scratch
+
+---
+
+1. "In this video we will download and install SQL Server and we will also install SQL Server Management Studio."
+   Plain English: The lesson shows how to get and install two things: the SQL Server engine (the database server) and SSMS (SQL Server Management Studio), the graphical tool you use to manage the server.
+   Why it matters: You need the server to store/query data and SSMS to inspect, create and manage databases while you build your app.
+
+2. "So I will come to this URL, Microsoft.com slash SQL Server slash SQL Server downloads, and I will provide the links to both the downloads and the notes attached to this lecture."
+   Plain English: The instructor opens Microsoft’s official SQL Server downloads page and will paste those links into the course resources.
+   Why it matters: Always use official download pages to avoid malicious files; having the links in the lecture notes saves time.
+
+3. "And on this page I will come down to the developer section and this is the SQL Server 2019 Developer and it's a free edition."
+   Plain English: On the downloads page they pick the Developer edition (here shown as SQL Server 2019 Developer), which is free for development and testing.
+   Why it matters: Developer edition has full features (same engine as Enterprise) but is licensed for development/testing only — not for production servers.
+
+4. "So I will come here and click on the download now."
+   Plain English: They click the “Download” button for the Developer edition to start the installer download.
+   Practical note: The download is a small bootstrapper that later downloads the chosen installation files.
+
+5. "And I will click on Save."
+   Plain English: When the browser asks, they save the installer file to disk (Downloads folder).
+   Why it matters: Save the installer and then run it to start the setup.
+
+6. "Once it is saved, I will click on the installed X."
+   Plain English (fixed): After saving they run the downloaded installer (double-click the saved file). The transcript’s “installed X” likely means they clicked the downloaded installer executable.
+   Practical note: Run the bootstrapper as administrator if the installer asks for elevated permissions.
+
+7. "And this has started the installation of the 2019 SQL Server Developer edition."
+   Plain English: Running the installer begins the SQL Server installation process for Developer edition.
+   Why it matters: Installer may ask for install type (Basic, Custom) and create a database instance on your machine.
+
+8. "I will click on the basic version."
+   Plain English: They chose the Basic install option — a quick setup with default settings.
+   Why it matters: Basic is fastest and easiest for learning; Custom lets you choose features and named instance settings.
+
+9. "Click on Accept."
+   Plain English: Accept the license/terms so the installer can proceed.
+   Why it matters: Legal requirement; installer won’t proceed without acceptance.
+
+10. "And I will choose the same path."
+    Plain English: They accept the default install location or reuse the path suggested by the installer.
+    Why it matters: You can change the install path if disk space or policies require it, otherwise defaults work fine.
+
+11. "Click on install."
+    Plain English: Start the actual installation process.
+    Practical note: Installation will download/install required files — it can take several minutes.
+
+12. "The SQL Server has now been installed and it has brought you some information."
+    Plain English: After installation completes, the installer shows an information/summary screen with details about the new instance.
+    Why it matters: This screen gives you connection details you’ll need to connect clients (like SSMS or your app).
+
+13. "We have the connection string over here."
+    Plain English: The installer displays a suggested connection string or the server/instance name to connect to SQL Server.
+    Why it matters: You’ll use this server/instance identifier later when connecting SSMS or configuring your application (e.g., connection string in `appsettings.json`).
+
+14. "We have the SQL Server installed folder and some other information as well."
+    Plain English: The installer shows where server files were placed and other installation metadata (log paths, ports, etc.).
+    Why it matters: Useful for troubleshooting or if you need to find logs or binaries.
+
+15. "We have to keep our focus towards this server information, which is localhost slash Microsoft SQL Server 01."
+    Plain English: The important item is the server instance name — in this example it’s `localhost\MicrosoftSQLServer01` (transcript spacing fixed). That is how you address the server from client tools.
+    Why it matters: The instance name tells SSMS or your app which SQL Server instance to connect to on your machine.
+
+16. "Yours could be something different."
+    Plain English: Your installer may create a different instance name (or you may choose one during custom install).
+    Why it matters: Don’t assume the same name — copy whatever your installer shows.
+
+17. "We will keep this information handy of what SQL Server instance we have installed on our machine."
+    Plain English: Save/copy the instance name somewhere safe — you’ll need it to connect.
+    Practical note: Copy it to a text file or the course notes so you don’t forget.
+
+18. "Yours could be something different, but keep this information handy because we will use this information later on to to create a new database inside the SQL Server."
+    Plain English: Reiterating: keep the instance name because you’ll use it when creating databases from SSMS or from your application.
+    Why it matters: Without the correct instance name you can’t connect and create the DB.
+
+19. "So I would basically copy this information and keep it handy somewhere."
+    Plain English: They copy the server/instance string and save it for later use.
+    Practical tip: You’ll paste it into the SSMS Connect dialog or your app’s connection string.
+
+20. "From this window."
+    Plain English: (Fragment) Refers to the installer summary window that contains the server/instance details and links.
+    Why it matters: That same window often links to download SSMS.
+
+21. "You can also see it's written over here that we can install SSMS."
+    Plain English: The installer summary usually offers a link/button to download SSMS (SQL Server Management Studio).
+    Why it matters: SSMS is the GUI tool for managing databases and running T-SQL.
+
+22. "It is the ID which is used to run SQL and I can click on here or I will also provide the link to download SSMS."
+    Plain English (fixing transcript): SSMS is the IDE (integrated development environment) used to run SQL queries and manage the server. The instructor will provide the download link as well.
+    Why it matters: SSMS provides a comfortable environment to create DBs, write queries, and manage security.
+
+23. "So you can come to the link and you can click on this free download for SQL Server Management Studio, SSMS So you can come over here or click on the setup and click on Install SSmS."
+    Plain English: Go to the SSMS download page, save the installer, then run the SSMS setup and choose Install.
+    Practical note: SSMS is a separate download from the SQL Server engine and is usually updated independently.
+
+24. "So it comes to the same URL."
+    Plain English: The SSMS download also lands you on an official Microsoft download page (or the link takes you to the SSMS installer).
+    Why it matters: Confirms you’re using the official source.
+
+25. "So I will come here and click on this download and install SSMS."
+    Plain English: They download the SSMS installer and run it to install the Management Studio.
+    Practical note: SSMS installation is straightforward — just run and follow prompts.
+
+26. "So it's, it's asking me to save it."
+    Plain English: The browser prompts to save the SSMS installer; they click Save.
+    Why it matters: Save then run the setup.
+
+27. "Once it has been downloaded, I will click on the setup and this will open the setup for me."
+    Plain English: After download, they run the SSMS setup executable to start installation.
+    Why it matters: You then choose install options (mostly default) and wait for completion.
+
+28. "I will click on install."
+    Plain English: Start the SSMS installation.
+    Practical note: SSMS install can take several minutes; it may require restarting SSMS afterward.
+
+29. "The installation has now completed and I will click on close and I will open a SQL Server management studio and it has opened the connect to server pop up and you can mention the server name that you installed, which was the instance name of the SQL Server."
+    Plain English: After SSMS installs, launching it shows a Connect to Server dialog where you paste the server/instance name you copied earlier so SSMS can connect.
+    Why it matters: This is the step where you actually connect to the SQL Server instance to manage it.
+
+30. "And if you remember from the video it was this yours could be something different."
+    Plain English: Reminder: paste the instance name you got earlier; it may not match the instructor’s example.
+    Why it matters: Use your own instance value.
+
+31. "So I have pasted the one that SQL Server gave me, so I've copied it to the server name and I will keep Windows authentication as my authentication mechanism."
+    Plain English: They pasted the instance name and chose Windows Authentication (use your Windows account to log in) rather than SQL logins.
+    Why it matters: Windows Authentication is simpler and more secure for local development; SQL Authentication uses username/password accounts defined inside SQL Server.
+
+32. "I will click on Connect and it has connected me to the to the SQL Server instance in my machine."
+    Plain English: They pressed Connect and SSMS successfully opened a session to the local SQL Server instance.
+    Why it matters: You’re now connected and can view/create databases, run queries, etc.
+
+33. "And if you, your, your databases will come over here if there are any."
+    Plain English: In SSMS’s Object Explorer you’ll see the Databases folder which lists existing databases on that instance (if any).
+    Why it matters: This is where you inspect tables, views, stored procedures, and more.
+
+34. "And during the application we will create a new database as well."
+    Plain English: The course will show how to create a database for the web app later — you’ll follow similar steps in SSMS or via scripts.
+    Why it matters: Your app needs a database backing store; creating it is essential setup.
+
+35. "So you will have to follow this SQL Server installation if you want to go ahead with the with creating a new web API."
+    Plain English: If you want to build and run the course’s web API that uses SQL Server, you must install SQL Server and SSMS like shown so you have a local DB to connect to.
+    Why it matters: Without a DB server you can’t test database-backed features locally.
+
+---
+
+## Quick practical checklist & helpful commands
+
+* After installation, verify SQL Server service is running: open Services (services.msc) and check for `SQL Server (<instanceName>)`.
+* Verify connection via command line: open PowerShell and run `sqlcmd -S localhost\<InstanceName> -E` (uses Windows auth); type `SELECT @@VERSION;` then `GO`. *(`sqlcmd` may need to be installed).*
+* To create a quick database in SSMS: connect → right-click Databases → New Database... → give a name → OK.
+* Typical connection string for an ASP.NET Core app (Windows auth):
+  `Server=localhost\MicrosoftSQLServer01;Database=MyAppDb;Trusted_Connection=True;`
+  (replace instance name and DB name as appropriate.)
+
+---
+
+$ Section 1.8 Getting Help 
+
+Skipped this section because content is too limited
+
+---
+
+$ Section 1.9 Complete Source Code On Git 
+
+"https://github.com/sameer8saini/BloggieMVC" the full code available on Git Repo
+
+---
+
+$ Section 1.10 What is ASP .NET Core - An Overview to ASP.Net Core and It's benefits
+
+# Sentence-by-sentence explanation — from scratch
+
+---
+
+1. "In this video."
+   Plain English: This line just says *“this lesson/video.”* It’s a short intro marker — the speaker is telling you what the video will cover.
+   Why it matters: It sets the context: the rest of the sentences describe what this particular video will teach.
+
+---
+
+2. "We will go on and get an overview of Dotnet core and the latest version of Dotnet and its benefits."
+   Plain English: The video will give a high-level tour of .NET Core and the newest .NET release, and explain why using them is useful.
+   Key idea: “Overview” = conceptual summary (what it is, major features, and why you’d choose it).
+   Practical note: Expect this to be a non-deep, conceptual introduction before hands-on work.
+
+---
+
+3. "Dotnet core is a new version of the .net framework, which is free open source general purpose development platform maintained by Microsoft."
+   Plain English: The speaker says .NET Core is a newer, cross-platform take on Microsoft’s .NET platform. The platform is free and open source and is used to build many kinds of apps.
+   Correction / clearer picture: historically Microsoft had .NET Framework (Windows-only). .NET Core was the cross-platform re-implementation. Since .NET 5 the product line was unified under the name .NET (so people now commonly refer to “.NET 6/7/8” rather than “.NET Core”). Regardless of name, the platform is OSS, general-purpose, and maintained by Microsoft + a large community.
+   Why it matters: Knowing the evolution helps you pick the right runtime and understand compatibility (Windows-only legacy vs modern cross-platform).
+   Practical note: For new projects you’ll use modern .NET (8, for example) and its tooling (SDK + CLI).
+
+---
+
+4. "It is a cross platform framework that runs on Windows, Mac OS and Linux operating systems."
+   Plain English: The modern .NET runtime works on the three major OS families so you can develop and run apps on any of them.
+   Why it matters: You’re not locked to Windows — you can develop on macOS or Linux and deploy to Linux servers or containers.
+   Practical note: This is why .NET is popular for cloud deployments and containers (e.g., Docker + Linux).
+
+---
+
+5. "the.net framework can be used to build different types of applications such as mobile, desktop, web, cloud, Iot, machine learning, microservices games and much more."
+   Plain English: .NET supports building many kinds of software: mobile apps, desktop apps, websites, cloud services, IoT apps, ML models, microservices, games, etc.
+   Key examples:
+
+   * Web: ASP.NET Core (server apps, APIs)
+   * Mobile: .NET MAUI / Xamarin (cross-platform mobile)
+   * Desktop: WinForms/WPF (Windows) and MAUI (cross-platform)
+   * Cloud: backends and serverless on Azure (and other clouds)
+   * ML: ML.NET (inference/training)
+   * Games: many games use C#/.NET (Unity engine)
+     Why it matters: One platform covers many problem domains, so learning .NET opens multiple paths.
+     Practical note: choose the right subset of .NET tooling for your target (e.g., ASP.NET Core for web, MAUI for mobile).
+
+---
+
+6. "To summarize Dotnet core and the latest version of Dotnet brings a lot of benefits to us on the table, like amazing performance, fast open source with a great community support, cross-platform and cloud support and a built in dependency injection container which we will use a lot throughout our application."
+   Plain English: The modern .NET gives several practical advantages: better performance, active open-source development and community, cross-platform cloud friendliness, and it includes a dependency-injection system out of the box.
+   Let’s unpack each benefit:
+
+   • Amazing performance
+
+   * What it means: Runtime and framework improvements (faster JIT, improved garbage collector, lightweight web server Kestrel, optimized libraries) make .NET apps run very quickly and handle many requests per second.
+   * Why it matters: Faster response times and higher throughput → cheaper, more scalable services.
+
+   • Fast open source with great community support
+
+   * What it means: The platform and many libraries are developed in public repositories; Microsoft and community contributors iterate quickly, add features and fix issues.
+   * Why it matters: Bugs get fixed faster, many libraries are available, and you can read source code or contribute.
+
+   • Cross-platform and cloud support
+
+   * What it means: You can develop and run on Windows/macOS/Linux and deploy easily to cloud services (Azure, AWS, containers). .NET tooling supports container images, trimming, self-contained deploys, and side-by-side installs.
+   * Why it matters: Flexibility in hosting and straightforward CI/CD and container workflows.
+
+   • Built-in dependency injection (DI) container
+
+   * What it means: ASP.NET Core / Microsoft.Extensions provide a simple, built-in DI system where you register services and the framework injects them where needed.
+   * Why it matters: DI makes code modular, testable, and easier to maintain.
+   * Practical note: The built-in container is lightweight and covers most use cases; you can swap in a richer third-party container if you need more advanced features (Autofac, StructureMap, etc.). In code you typically register services in `Program.cs` via lines like `services.AddScoped<IMyService, MyService>()`.
+
+---
+
+ Final short summary
+
+* The video promises a high-level tour of the modern .NET platform (the successor to both .NET Framework and .NET Core), emphasizing that it is cross-platform, open-source, high-performance, and well suited for cloud and web development, with useful built-in features like dependency injection.
+* Correction recap: “.NET Core” was the cross-platform reimplementation — modern releases (5/6/7/8) are combined under the name .NET; the practical takeaway is: use the current supported .NET (e.g., .NET 8 LTS) for new apps.
+
+---
